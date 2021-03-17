@@ -35,17 +35,17 @@
 
 /* Styles for Mobile layout */
 
-.logo-polar {
+#logo-polar {
     font-weight: bold;
     font-family: 'Playfair Display', serif;
 }
 
-.logo-line {
+#logo-line {
     font-weight: lighter;
     font-family: 'Playfair Display', serif;
 }
 
-.polarline-head {
+#polarline-head {
     display: flex;
     background-color: black;
     font-size: 35px;
@@ -53,7 +53,7 @@
     letter-spacing: 3px;
 }
 
-.polarline-head a {
+#polarline-head a {
     color: white;
     text-decoration: none;
     text-transform: lowercase;
@@ -74,11 +74,11 @@ nav{
     width: 15%;
 }
 
-.nav-links-grp {
+#nav-links-grp {
     width: 70%;
 }
 
-.nav-links{
+#nav-links{
     width: 40%;
     background-color: white;
     display: flex;
@@ -88,12 +88,12 @@ nav{
     margin: auto;
 }
 
-.nav-links li {
+#nav-links li {
     display: block;
     margin: 30px 0;
 }
 
-.nav-links li a{
+#nav-links li a{
     text-decoration: none;
     color: black;
     font-size: large;
@@ -101,7 +101,7 @@ nav{
     padding-bottom: 2px;
 }
 
-.nav-links li a:before {    
+#nav-links li a:before {    
     background: none repeat scroll 0 0 transparent;
     bottom: 0;
     content: "";
@@ -113,19 +113,19 @@ nav{
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
 }
-.nav-links li a:hover:before { 
+#nav-links li a:hover:before { 
     width: 100%; 
     left: 0; 
 }
 
-.nav-icons {
+#nav-icons {
     display: flex;
     width: 15%;
     align-items: center;
     justify-content: center;
 }
 
-.nav-icons a {
+#nav-icons a {
     padding: 10px;
 }
 
