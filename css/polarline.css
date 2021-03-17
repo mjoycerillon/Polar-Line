@@ -34,6 +34,17 @@
 }
 
 /* Styles for Mobile layout */
+
+.logo-polar {
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+}
+
+.logo-line {
+    font-weight: lighter;
+    font-family: 'Playfair Display', serif;
+}
+
 .polarline-head {
     display: flex;
     background-color: black;
@@ -55,10 +66,20 @@ nav{
     padding: 0;
     position: fixed;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.filler {
+    width: 15%;
+}
+
+.nav-links-grp {
+    width: 70%;
 }
 
 .nav-links{
-    width: 30%;
+    width: 40%;
     background-color: white;
     display: flex;
     flex-direction: row;
@@ -97,16 +118,16 @@ nav{
     left: 0; 
 }
 
-.logo-polar {
-    font-weight: bold;
-    font-family: 'Playfair Display', serif;
+.nav-icons {
+    display: flex;
+    width: 15%;
+    align-items: center;
+    justify-content: center;
 }
 
-.logo-line {
-    font-weight: lighter;
-    font-family: 'Playfair Display', serif;
+.nav-icons a {
+    padding: 10px;
 }
-
 
 /* Style for the body */
 body {
