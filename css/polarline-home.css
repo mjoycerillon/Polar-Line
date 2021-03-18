@@ -1,0 +1,47 @@
+#banner {
+    background: url(../images/home/banner.png);
+    background-size: cover;
+    position: relative;
+    height: 800px;
+    width: 100%;
+}
+
+#banner-area{
+    font-size: 70px;
+    left: 10%;
+    top: 35%;
+    position: absolute;
+}
+
+#banner-area a {
+    text-decoration: none;
+}
+
+.banner-text {
+    line-height: 50px;
+    padding: 0.5em 0;
+}
+
+.banner-text {
+    color: whitesmoke;
+    font-weight: 400;
+}
+
+.buttonHome {
+    background-color: black;
+    border: none;
+    cursor: pointer;
+    font-size: 25px;
+    outline: none;
+    padding: 0.3em 0.75em;
+    width: 140px;
+}
+
+.buttonHome:active {
+    transform: translateY(1px);
+}
+
+.btnContents {
+    color: white;
+    font-weight: 500;
+}

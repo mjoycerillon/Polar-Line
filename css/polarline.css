@@ -46,10 +46,12 @@
 }
 
 #polarline-head {
+    top: 0;
+    width: 100%;
     display: flex;
     background-color: black;
     font-size: 35px;
-    padding: 0.75em;
+    padding: 0.5em;
     letter-spacing: 3px;
 }
 
@@ -62,9 +64,9 @@
 
 nav{
     background-color: white;
+    height: 80px;
     color: black;
     padding: 0;
-    position: fixed;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -137,9 +139,6 @@ body {
 }
 
 /* Style for the main */
-main {
-    margin-top: 90px;
-}
 
 
 /* Media query for Tablet layout */
