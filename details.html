@@ -9,6 +9,8 @@
     <title>Polar Line | Product Details</title>
     <link rel="stylesheet" href="./css/polarline.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     
     <style>
         main{
@@ -17,12 +19,14 @@
 
         .product-gallery{
             float: left;
-            width: 50%;
+            width: 60%;
             display: inline-flex;
         }
         .product-desc{
             float: left;
-            width: 50%;
+            width: 40%;
+            margin-top: 2.5%;
+            
         }
 
         .product-gallery-column1{
@@ -55,6 +59,109 @@
             margin: 2%;
         }
 
+        #addToBag{
+            background-color: black;
+            color: white;
+            transition: 0.3s ease-in-out;
+            height: 40px;
+            width: 150px;
+            font-size: 20px;
+            padding: 5px;
+        }
+
+        #addToBag:hover{
+            background-color: white;
+            border : 2px solid black;
+            color: black;
+        }
+
+        .product-description{
+            color: gray;
+            font-size: 15px;
+        }
+
+        a{
+            font-size: 13px;
+            color: brown;
+            text-decoration: none;
+        }
+
+        #productName {
+            font-weight: bold;
+            font-size: 35px;
+        }
+
+        #productCost{
+            font-weight: bold;
+            font-size: 35px;
+            color: red;
+        }
+
+        #productReview{
+            font-weight: bold;
+        }
+
+        .checked {
+             color: orange;
+        }
+
+        #productSize{
+            font-weight: bold;
+        }
+
+        #productAvailability{
+            font-size: small;
+            color: grey;
+        }
+
+        .like-button {
+         display: inline-block;
+        position: relative;
+        font-size: 32px;
+        cursor: pointer;
+        }
+        .like-button::before {
+            font-size: 35px;
+            color: #000;
+            content: '❤';
+            position: absolute;
+            left: 53%;
+            top: 45%;
+            transform: translate(-50%, -50%);
+        }
+        .like-button::after {
+            font-size: 35px;
+            color: red;
+            content: '❤';
+            position: absolute;
+            left: 53%;
+            top: 45%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.2s;
+        }
+
+        .like-button.liked::after {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .colorSelBlack{
+            height: 30px;
+            width: 30px;
+            background-color: black;
+            border-radius: 50%;
+        }
+
+        #productColor{
+            font-weight: bold;
+            margin
+        }
+
+        .sizeSel{
+            border: 1px solid gray;
+            background-color: white;
+            color: gray;
+        }
+
     </style>
 
 </head>
@@ -84,16 +191,43 @@
     <main>
         <div class="product-gallery">
             <div class="product-gallery-column1">
-                <div id="inner1"><img src="./images/details/details-img2.png" height="130"/></div>
-                <div id="inner1"><img src="./images/details/details-img1.png" height="130"/></div>
-                <div id="inner1"><img src="./images/details/details-img4.png" height="130"/></div>
+                <div id="inner1"><img src="./images/details/details-img2.png" height="150"/></div>
+                <div id="inner1"><img src="./images/details/details-img1.png" height="150"/></div>
+                <div id="inner1"><img src="./images/details/details-img4.png" height="150"/></div>
             </div>
             <div class="product-gallery-column2">
-            <img src="./images/details/details-img3.png" height="410"/>
+            <img src="./images/details/details-img3.png" height="470"/>
             </div>
         </div>
         <div class="product-desc">
-            Amelie Winter Hoodie
+            <span id="productName">Amelie Winter Puffer Jacket </span><button class="like-button"></button><br>
+            <span id="productCost">$000</span> <br>
+            <span id="productReview">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span> 
+                4.9 | Reviews  
+            </span><br><br>
+            <span id="productColor">COLOR  <br><button class="colorSelBlack" ></button></span><br><br>
+            <span id="productSize">SIZE  &nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Size Guide >></a><br>
+                <button class="sizeSel">S</button>&nbsp;&nbsp;<button class="sizeSel">M</button>&nbsp;&nbsp;<button class="sizeSel">L</button>&nbsp;&nbsp;<button class="sizeSel">XL</button>
+            </span><br>
+            <span id="productAvailability">Availability : In Stock</span> <br><br>
+            <button id="addToBag">ADD TO BAG</button>
+            <br>
+            <p>
+                <b>Product Description</b>
+                <p class="product-description">
+                    Material : Polyester <br>
+                    Weight : 0.3100kg <br>
+                    Brand : Loren Ipsum <br>
+                    Long cuffed sleeve <br>
+                    2 side pockets <br>
+                    Front Zip Fastening
+                </p>
+            </p>
         </div>
     </main>
     <footer>
@@ -127,5 +261,10 @@
             </form>
         </div>
     </footer>
+    <script>
+        document.querySelector('.like-button').addEventListener('click', (e) => {
+        e.currentTarget.classList.toggle('liked');
+        });
+    </script>
 </body>
 </html>
