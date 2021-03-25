@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- This webpage is created by: Mary Joyce Rillon (C0787035)-->
+<!-- This webpage is created by: Anugna Patibandla(C0791762)-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +7,7 @@
     <meta name="description" content="Succulents Haven">
     <title>Polar Line | Login</title>
     <link rel="stylesheet" href="./css/polarline.css">
+    <link rel="stylesheet" href="./css/polarline-login.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -32,7 +33,34 @@
             <a href="login.html"><img src="./images/home/account.png" alt="Account" height="35"></a>
         </div>    
     </nav>
-    <main></main>
+    <main>        
+    <div class="grid-container">
+        <div>
+        <h4> LOGIN  </h4>
+        <form action="/action_page.php">
+        <label for="Email">Email</label><br>
+        <input type="email" id="Email" placeholder="abc@gmail.com" required><br>
+        <label for="lname">Password</label><br>
+        <input type="password" id="lname" name="lname" placeholder="****" required><br>
+        <span style="font-size:13px">forgot your password? </span><br><br>
+        <input type="submit" value="Sign In">
+        </form>    
+        </div>
+        <div>
+        <h4> REGISTER  </h4>
+        <form>
+        <label for="fname">First name</label><br>
+        <input type="text" id="fname" name="fname" required><br>
+        <label for="lname">Last name</label><br>
+        <input type="text" id="lname" name="lname" required><br>
+        <label for="email">Email</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <label for="pass">Password</label><br>
+        <input type="password" id="pass" name="pass" required><br><br>
+        <input type="submit" value="Create">
+        </div>    
+    </div>
+    </main>
     <footer>
         <div class="footer-col-40">
             <div id="footer-logo">
