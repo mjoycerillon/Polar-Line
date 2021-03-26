@@ -1,13 +1,33 @@
 /* Anugna Patibandla -C0791762*/
 .grid-container {
     display: grid;
+    grid-column-gap: 100px;
     grid-template-columns: auto auto;
     grid-gap: 10px;
     padding: 10px;
+    border-radius: 30px;
   }
   
   .grid-container > div {
+    background-color: white;
     text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
     padding: 20px 0;
     font-size: 20px;
+  }
+
+  .input{
+    width: 40%;
+    min-height: 1rem;
+    padding: 0.5em;
+    resize: none;
+  }
+
+  .btn-black{
+    background-color: black;
+    margin-bottom: 1.5rem;
+    min-height: 1rem;
+    padding: 0.5em;
+    color: white;
+    width: 42%;
   }
