@@ -1,5 +1,7 @@
+main {
+    padding-bottom: 4em;
+}
 #contacts {
-    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -17,8 +19,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 25%;
-    height: 100px;
+    width: 20%;
+    height: 80px;
     font-size: larger;
 }
 
@@ -27,6 +29,44 @@
 }
 
 .content:nth-child(2){
-    width: 20%;
+    width: 18%;
     border-right:2px solid lightgray;
+}
+
+header {
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    font-size: 25px;
+    padding: 1em;
+}
+
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+}
+
+#contactForm input, textarea{
+    padding: 0.5em;
+    font-size: 20px;
+    width: 500px;
+}
+
+.contactFormContent {
+    padding: 0.75em;
+}
+
+#btnContactSubmit {
+    background-color: black;
+    padding: 0.5em;
+    border: 2px solid white;
+    color: white;
+    cursor: pointer;
+    height: 55px;
+    font-size: 20px;
+    outline: none;
+    transition: all 0.5s ease-in-out;
+    width: 200px;
 }

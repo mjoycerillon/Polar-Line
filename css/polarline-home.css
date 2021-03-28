@@ -19,7 +19,6 @@
 
 .banner-text {
     line-height: 50px;
-    padding: 0.5em 0;
 }
 
 .banner-text {
@@ -27,24 +26,21 @@
     font-weight: 400;
 }
 
-.buttonHome {
+#btnHomeShopNow {
     background-color: black;
-    border: none;
+    border: 2px solid white;
+    color: white;
     cursor: pointer;
-    font-size: 25px;
+    height: 50px;
+    font-size: 30px;
     outline: none;
-    padding: 0.3em 0.75em;
-    width: 140px;
+    width: 200px;
 }
 
-.buttonHome:active {
+#btnHomeShopNow:active {
     transform: translateY(1px);
 }
 
-.btnContents {
-    color: white;
-    font-weight: 500;
-}
 #promotions {
     display: flex;
     flex-direction: column;

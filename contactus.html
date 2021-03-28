@@ -48,8 +48,25 @@
                 <span>info@polarline.com</span>
             </div>
         </div>
-        <form action="">
-        </form>
+        <header><span>SEND US A MESSAGE</span></header>
+        <form id="contactForm">
+            <div class="contactFormContent">
+                <input type="text" class="" id="txtContactName" placeholder="Name" required size="50">
+            </div>
+            <div class="contactFormContent">
+                <input type="email" class="" id="txtContactEmail" placeholder="Email" pattern="[^ @]*@[^ @]*"
+                required size="30">
+            </div>
+            <div class="contactFormContent">
+                <input type="tel" class="" id="txtContactNumber" placeholder="Number" required>
+            </div>
+            <div class="contactFormContent">
+                <textarea class="" id="txtContactMessage" rows="3" placeholder="Message" required size="200"></textarea>
+            </div>
+            <div class="contactFormContent">
+                <button id="btnContactSubmit" type="submit">SUBMIT</button>
+            </div>
+          </form>
     </main>
     <footer>
         <div class="footer-col-40">
