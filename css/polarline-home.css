@@ -124,7 +124,7 @@
     grid-row-end: 3;
     display: grid;
     grid-template-rows: 50px 70px repeat(3, 1fr);
-    padding-left: 1em;
+    padding: 1em;
 }
 
 .promo-item5-item-1 {

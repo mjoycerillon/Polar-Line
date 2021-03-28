@@ -34,7 +34,6 @@
 }
 
 /* Styles for Mobile layout */
-
 #logo-polar {
     font-weight: bold;
     font-family: 'Playfair Display', serif;
@@ -62,7 +61,6 @@
 
 nav{
     background-color: white;
-    height: 80px;
     color: black;
     padding: 0;
     width: 100%;
