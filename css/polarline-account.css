@@ -93,6 +93,11 @@ nav{
         
 }
 
+.editbutton:hover{
+    background-color:teal;
+    color: white;
+}
+
 .user{
     color:black;
     text-align-last: center;
