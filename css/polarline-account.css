@@ -77,8 +77,21 @@ nav{
     display: inline-block;
     box-sizing: border-box;
     width: 90%;
-    
-   
+}
+
+#detail{
+    color:black;
+    margin-left: 20px;
+}
+#billing{
+    color:black;
+    margin-left: 20px;
+    margin-bottom: 35px;
+}
+#shipping{
+    color:black;
+    margin-left: 20px;
+    margin-bottom: 35px;
 }
 
 .editbutton{
