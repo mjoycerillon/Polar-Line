@@ -101,12 +101,26 @@ nav{
         position: absolute;
         box-sizing: content-box;
         font-size: 20px;
-        margin-left: 900px;
+        margin-left:900px;
         margin-top: 2%;
         
 }
 
 .editbutton:hover{
+    background-color:teal;
+    color: white;
+}
+
+.addressbutton{
+    margin-left: 20px;
+    margin-bottom: 20px;
+    box-sizing: content-box;
+    color: white;
+    background: black;
+    font-size: 16px;
+}
+
+.addressbutton:hover{
     background-color:teal;
     color: white;
 }
