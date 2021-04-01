@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="./css/polarline.css">
     <link rel="stylesheet" href="./css/polarline-login.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="./scripts/polarline.js"></script>
 </head>
 <body>
     <div id="polarline-head" class="center-items">
@@ -19,11 +22,49 @@
     </div>
     <nav>
         <div class="filler"></div>
-        </div>
-        <div id="nav-links-grp">
-            <ul id="nav-links">
+        <div class="nav-links-grp">
+            <ul class="nav-links">
                 <li><a href="index.html">HOME</a></li>
-                <li><a href="shop.html">SHOP</a></li>
+                <li id="homeShopLink">
+                    <a href="shop.html">SHOP</a>
+                    <div class="drop-menu">
+                        <div class="sub-menu">
+                            <a href="shop.html">Women</a>
+                            <ul class="inner-drop-menu">
+                                <li><a href="shop.html">Tops</a></li>
+                                <li><a href="shop.html">Bottoms</a></li>
+                                <li><a href="shop.html">Hats</a></li>
+                                <li><a href="shop.html">Socks</a></li>
+                            </ul>  
+                        </div>
+                        <div class="sub-menu">
+                            <a href="shop.html">Men</a>
+                            <ul class="inner-drop-menu">
+                                <li><a href="shop.html">Tops</a></li>
+                                <li><a href="shop.html">Bottoms</a></li>
+                                <li><a href="shop.html">Hats</a></li>
+                                <li><a href="shop.html">Socks</a></li>
+                            </ul>  
+                        </div>
+                        <div class="sub-menu">
+                            <a href="shop.html">Kids</a>
+                            <ul class="inner-drop-menu">
+                                <li><a href="shop.html">Tops</a></li>
+                                <li><a href="shop.html">Bottoms</a></li>
+                                <li><a href="shop.html">Hats</a></li>
+                                <li><a href="shop.html">Socks</a></li>
+                            </ul>  
+                        </div>
+                        <div class="sub-menu">
+                            <a href="shop.html">Sale</a>
+                            <ul class="inner-drop-menu">
+                                <li><a href="shop.html">New Sale Items</a></li>
+                                <li><a href="shop.html">2 for $20</a></li>
+                                <li><a href="shop.html">Clearance</a></li>
+                            </ul>  
+                        </div>
+                    </div>
+                </li>
                 <li><a href="contactus.html">CONTACT US</a></li>
             </ul>
         </div>
@@ -31,7 +72,7 @@
             <a href="#"><img src="./images/home/search.png" alt="Search" height="35"></a>
             <a href="cart.html"><img src="./images/home/shop-bag.png" alt="Shop Bag" height="35"></a>
             <a href="login.html"><img src="./images/home/account.png" alt="Account" height="35"></a>
-        </div>    
+        </div>
     </nav>
     <main>        
     <div class="grid-container">
