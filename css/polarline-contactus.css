@@ -49,9 +49,9 @@ header {
 }
 
 #contactForm input, textarea{
-    padding: 0.5em;
-    font-size: 20px;
-    width: 500px;
+    padding: 0.5em !important;
+    font-size: 20px !important;
+    width: 500px !important;
 }
 
 .contactFormContent {
@@ -59,14 +59,7 @@ header {
 }
 
 #btnContactSubmit {
-    background-color: black;
-    padding: 0.5em;
-    border: 2px solid white;
-    color: white;
-    cursor: pointer;
     height: 55px;
     font-size: 20px;
-    outline: none;
-    transition: all 0.5s ease-in-out;
     width: 200px;
 }
