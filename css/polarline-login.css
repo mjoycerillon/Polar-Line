@@ -1,34 +1,29 @@
 /* Anugna Patibandla -C0791762*/
-.grid-container {
-    display: grid;
-    grid-column-gap: 100px;
-    grid-template-columns: auto auto;
-    grid-gap: 10px;
-    padding: 10px;
-    border-radius: 30px;
-  }
-  
-  .grid-container > div {
-    background-color: white;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px 0;
-    font-size: 20px;
-  }
+main {
+  padding: 2em 4em;
+  background-color: #ecebeb;
+}
 
-  .inp{
-    width: 40%;
-    min-height: 1rem;
-    margin-bottom: 0.5rem;
-    padding: 0.5em;
-    resize: none;
-  }
+h4{
+  font-weight: bold !important;
+  display: flex;
+  justify-content: center;
+}
+.inp{
+  width: 90% !important;
+  margin: auto;
+}
 
-  .btn-black{
-    background-color: black;
-    margin-bottom: 1.5rem;
-    min-height: 1rem;
-    padding: 0.5em;
-    color: white;
-    width: 42%;
-  }
+.login-col {
+  background-color: whitesmoke;
+  width: 60%;
+  margin: auto;
+  padding: 2em;
+  border-radius: 5px;
+}
+
+.btn-black{
+  height: 40px;
+  font-size: 20px;
+  width: 42%;
+}
