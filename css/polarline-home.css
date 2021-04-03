@@ -1,44 +1,45 @@
-#banner {
-    background: url(../images/home/banner.png);
-    background-size: cover;
-    position: relative;
-    height: 800px;
-    width: 100%;
-}
-
-#banner-area{
-    font-size: 70px;
-    left: 10%;
-    top: 35%;
-    position: absolute;
-}
-
-#banner-area a {
-    text-decoration: none;
-}
-
-.banner-text {
-    line-height: 50px;
+.banner-area {
+    z-index: 20;
+    padding-left: 5em !important;
 }
 
 .banner-text {
     color: whitesmoke;
     font-weight: 400;
+    font-size: 70px;
 }
 
 #btnHomeShopNow {
     background-color: black;
-    border: 2px solid white;
     color: white;
     cursor: pointer;
     height: 50px;
     font-size: 30px;
     outline: none;
     width: 200px;
+    border: 0;
 }
 
 #btnHomeShopNow:active {
     transform: translateY(1px);
+} 
+
+.home-carousel-wrapper {
+    height: 100vh;
+}
+
+#slider-area {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+}
+
+#slider-area .owl-item div {
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 #promotions {
@@ -52,22 +53,16 @@
 .img-1{
     background: url('../images/home/promo-img1.png') no-repeat center center;
     background-size: cover;
-    width: 100%;
-    height: 100%;
     z-index: 0;
 }
 .img-2{
     background: url('../images/home/promo-img2.png') no-repeat center center;
     background-size: cover;
-    width: 100%;
-    height: 100%;
     z-index: 0;
 }
 .img-3{
     background: url('../images/home/promo-img3.png') no-repeat center center;
     background-size: cover;
-    width: 100%;
-    height: 100%;
     z-index: 0;
 }
 .filter {
@@ -77,26 +72,14 @@
 }
 
 .home-promo-label {
-    z-index: 10;
+    z-index: 80;
     position: absolute;
     font-size: 60px;
     font-weight: bold;
-    color: white;
     letter-spacing: 2px;
     line-height: 1em;
+
 }
 .home-promo-label1 {
-    top: 1300px;
-    left: 15%;
     letter-spacing: 3px;
-}
-
-.home-promo-label2 {
-    top: 1100px;
-    left: 60%;
-}
-
-.home-promo-label3 {
-    top: 1800px;
-    left: 25%;
 }

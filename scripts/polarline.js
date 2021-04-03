@@ -40,9 +40,8 @@ $(function() {
         $(this).children('div').stop(true, false, true).slideToggle(400)
     });
 
-
     /**
-     * Login and Register
+     * Login
      */
     // Upon login, save the data of the user to local storage
     $('#btnLoginSubmit').click(function() {
@@ -63,8 +62,8 @@ $(function() {
         }
         // Validate if the email match on the current data
         if (account == "") {
-            alert("Incorrect email or password.");
-            console.log("Incorrect email or password.")
+            alert("Account does not exist!");
+            console.log("Account does not exist!")
         } else {
             // Validate if password match the login email
             if (account["password"] != loginPassword) {
@@ -73,7 +72,7 @@ $(function() {
             } else {
                 // Set the global variable isLoggedOn to true and redirect to Account Page
                 localStorage.setItem("isLoggedOn", true);
-                window.open("account.html");
+                window.location = "account.html"
             }
         }
     });
