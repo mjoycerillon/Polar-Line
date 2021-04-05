@@ -16,8 +16,8 @@
     <script src="./scripts/polarline.js"></script>
 </head>
 <body>
-    <div id="polarline-head" class="center-items">
-        <a href="index.html" class="align-items-center">
+    <div id="polarline-head" class="d-flex justify-content-center">
+        <a href="index.html" class="d-flex align-items-center">
             <span id="logo-polar">polar</span>
             <span id="logo-line">line.</span>
         </a>
@@ -71,9 +71,21 @@
             </ul>
         </div>
         <div id="nav-icons">
-            <a href="#"><img src="./images/home/search.png" alt="Search" height="35"></a>
-            <a id="navShopBag" href="cart.html"><img src="./images/home/shop-bag.png" alt="Shop Bag" height="35"></a>
-            <a id="navAccount" href="login.html"><img src="./images/home/account.png" alt="Account" height="35"></a>
+            <ul class="nav-icons-grp">
+                <li><a href="#"><img src="./images/home/search.png" alt="Search" height="35"></a></li>
+                <li id="navShopBag"><a href="cart.html"><img src="./images/home/shop-bag.png" alt="Shop Bag" height="35"></a></li>
+                <li id="navAccount" class="dropdown">
+                    <a class="navAccountLink" href="login.html"><img src="./images/home/account.png" alt="Account" height="35"></a>
+                    <ul class="dropdown-menu nav-account-d-menu">
+                        <li><a class="dropdown-item navAccountLink" href="login.html">
+                            <b><span id="navAccountName">Sign in/Register</span></b></a>
+                        </li>
+                        <li><a class="dropdown-item" href="#">My Orders</a></li>
+                        <li><a class="dropdown-item" href="#">My Coupons</a></li>
+                        <li><a class="dropdown-item" href="#">My Points</a></li>
+                    </ul>    
+                </li>
+            </ul>
         </div>
     </nav>
     <main>        
@@ -81,7 +93,7 @@
         <div class="col">
             <div class="login-col">
                 <h4>LOGIN</h4>
-                <form action="#">
+                <form id="loginForm" action="index.html">
                     <div class="form-group p-2">
                         <label for="txtLoginEmail" class="form-label">Email</label>
                         <input type="email" class="inp form-control" id="txtLoginEmail" required>
@@ -92,7 +104,7 @@
                     <span style="font-size:13px">Forgot your password? </span>
                 </div>
                 <div class="p-2">
-                    <button type="submit" class="btn-black btn btn-dark" id="btnLoginSubmit">Sign In</button>
+                    <input type="submit" class="btn-black btn btn-dark" id="btnLoginSubmit" value="Sign In"></input>
                 </div>
                 </form>  
             </div>
@@ -118,7 +130,7 @@
                         <input type="password" class="inp form-control" id="txtRegisterPassword" name="txtRegisterPassword" required>
                     </div>
                     <div class="p-2">
-                        <button type="submit" class="btn-black btn btn-dark" id="btnRegisterSubmit">Create</button>
+                        <input type="submit" class="btn-black btn btn-dark" id="btnRegisterSubmit" value="Create"></input>
                     </div>
                 </form>
             </div>

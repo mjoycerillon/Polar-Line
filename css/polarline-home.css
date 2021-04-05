@@ -1,6 +1,7 @@
 .banner-area {
     z-index: 20;
     padding-left: 5em !important;
+    width: auto !important;
 }
 
 .banner-text {

@@ -129,6 +129,22 @@ nav{
     margin: auto;
 }
 
+.nav-account-d-menu {
+    top: 50px !important;
+    border: none !important;
+    left: -100px;
+}
+
+.nav-icons-grp {
+    list-style: none;
+    display: flex;
+    margin: 0;
+}
+
+.nav-icons-grp li a {
+    width: auto;
+}
+
 .sub-menu {
     width: 25%;
     float: left;

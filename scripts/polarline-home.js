@@ -23,6 +23,7 @@ $(function() {
 
     // Calling the plugin Owl Carousel
     $('.owl-carousel').owlCarousel({
+        stagePadding: 0,
         autoplay:true,
         autoplayTimeout:5000, 
         animateOut: 'fadeOut',

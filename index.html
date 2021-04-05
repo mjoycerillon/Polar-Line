@@ -26,18 +26,15 @@
    
     <!-- Plugins JS -->
     <script src="./plugins/OwlCarousel/dist/owl.carousel.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.7/dist/sweetalert2.all.min.js"></script>
     
     <!-- Custom JS -->
     <script src="./scripts/polarline.js"></script>
     <script src="./scripts/polarline-home.js"></script>
-
-
-
+    
 </head>
 <body>
-    <div id="polarline-head" class="center-items">
-        <a href="index.html" class="align-items-center">
+    <div id="polarline-head" class="d-flex justify-content-center">
+        <a href="index.html" class="d-flex align-items-center">
             <span id="logo-polar">polar</span>
             <span id="logo-line">line.</span>
         </a>
@@ -91,13 +88,25 @@
             </ul>
         </div>
         <div id="nav-icons">
-            <a href="#"><img src="./images/home/search.png" alt="Search" height="35"></a>
-            <a id="navShopBag" href="cart.html"><img src="./images/home/shop-bag.png" alt="Shop Bag" height="35"></a>
-            <a id="navAccount" href="login.html"><img src="./images/home/account.png" alt="Account" height="35"></a>
+            <ul class="nav-icons-grp">
+                <li><a href="#"><img src="./images/home/search.png" alt="Search" height="35"></a></li>
+                <li id="navShopBag"><a href="cart.html"><img src="./images/home/shop-bag.png" alt="Shop Bag" height="35"></a></li>
+                <li id="navAccount" class="dropdown">
+                    <a class="navAccountLink" href="login.html"><img src="./images/home/account.png" alt="Account" height="35"></a>
+                    <ul class="dropdown-menu nav-account-d-menu">
+                        <li><a class="dropdown-item navAccountLink" href="login.html">
+                            <b><span id="navAccountName">Sign in/Register</span></b></a>
+                        </li>
+                        <li><a class="dropdown-item" href="#">My Orders</a></li>
+                        <li><a class="dropdown-item" href="#">My Coupons</a></li>
+                        <li><a class="dropdown-item" href="#">My Points</a></li>
+                    </ul>    
+                </li>
+            </ul>
         </div>
     </nav>
     <main>
-        <div class="row vh-100">
+        <div class="row gx-0 vh-100">
             <div class="banner-area d-flex justify-content-center flex-column">
                 <div class="banner-text">Lorem ipsum</div>
                 <button id="btnHomeShopNow">SHOP NOW</button>
