@@ -381,9 +381,18 @@
             var accounts = localStorage.getItem("accounts");
             
             var accountsObj = JSON.parse(accounts);
-
+            //console.log(localStorage.getItem("current_user"));
             console.log('button clicked');
             //console.log(accountsObj[0]["cart"]);
+            var currentUser = JSON.parse(localStorage.getItem("current_user"));
+            currentUser["cart"].push(
+                {
+                    "imageLocation" : $('.product-gallery-column2').children().attr('src'),
+                    "price" : $('#productCost').text(),
+                    "product" : $('#productName').text(),
+                    "quantity" : "1"
+                }
+            );
             accountsObj[0]["cart"].push(
                 {
                     "imageLocation" : $('.product-gallery-column2').children().attr('src'),
@@ -394,6 +403,8 @@
             );
             //console.log(accountsObj[0]);
             accounts = JSON.stringify(accountsObj);
+            var currUser = JSON.stringify(currentUser);
+            localStorage.setItem("current_user",currUser);
             localStorage.setItem("accounts",accounts);
         });
     </script>
