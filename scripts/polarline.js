@@ -92,17 +92,18 @@ $(function() {
             var tempAccount = objectData[account]
             if (tempAccount["email"] == loginEmail) {
                 emailFound = true;
-                localStorage.setItem("current_user", JSON.stringify(tempAccount));
+                alert("Account does not exist!");
+                console.log("Account does not exist!")
+                $("#loginForm").trigger("reset");
+                $('#txtLoginEmail').focus();
+                event.preventDefault();
+                
             }
         }
 
         // Validate if the email match on the current data
         if (emailFound == false) {
-            alert("Account does not exist!");
-            console.log("Account does not exist!")
-            $("#loginForm").trigger("reset");
-            $('#txtLoginEmail').focus();
-            event.preventDefault();
+            localStorage.setItem("current_user", JSON.stringify(tempAccount));            
 
         } else {
             userData = localStorage.getItem("current_user");
@@ -127,7 +128,5 @@ $(function() {
     /**
      * Register Button
      */
-    $('#registerForm').on('submit', function(event) {
-        console.log(accounts)
-    });
+   
 });
