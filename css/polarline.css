@@ -35,12 +35,12 @@
 }
 
 /* Styles for Mobile layout */
-#logo-polar {
+.logo-polar {
     font-weight: bold;
     font-family: 'Playfair Display', serif;
 }
 
-#logo-line {
+.logo-line {
     font-weight: lighter;
     font-family: 'Playfair Display', serif;
 }
@@ -178,36 +178,19 @@ body {
 }
 
 footer {
-    display: flex;
-    flex-direction: row;
     color: lightgray;
     background-color: black;
     width: 100%;
 }
 
-.footer-col-40 {
-    width: 40%;
-    padding: 4em;
-}
-
-.footer-col-20 {
-    width: 20%;
-    padding: 4em 2em 2em 4em;
-}
-
-.footer-col-40:first-child {
-    padding-left: 6em;
-}
-
-.footer-col-40:last-child {
-    padding-right: 6em;
+.footer-col-2 {
+    padding: 0.5em 0.5em 0.5em 7em !important;
 }
 
 #footer-logo {
     color: white;
     font-size: 50px;
     letter-spacing: 3px;
-    padding-bottom: 0.25em;
 }
 
 #footer-about-us {
@@ -225,7 +208,7 @@ footer {
     padding: 1.5em 1em 0 0;
 }
 
-#footer-col-header {
+.footer-col-header {
     color: white;
     padding: 1.25em 0;
     font-size: 20px;
