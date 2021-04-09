@@ -61,18 +61,21 @@
         #imgDetailsGalleryCol1Image1 {
             float:left; 
             margin: 2%;
+            cursor: pointer;
         }
 
         #imgDetailsGalleryCol1Image2{
             float:left; 
             clear: left;
             margin: 2%;
+            cursor: pointer;
         }
 
         #imgDetailsGalleryCol1Image3{
             float:left; 
             clear: left;
             margin: 2%;
+            cursor: pointer;
         }
 
         #btnDetailsAddToBag{
@@ -377,13 +380,17 @@
         });
 
         $('#btnDetailsAddToBag').click(function(){
-            
+
+            var isLoggedOn = localStorage.getItem("isLoggedOn");
+            //console.log(isLoggedOn);
             var accounts = localStorage.getItem("accounts");
             
             var accountsObj = JSON.parse(accounts);
             //console.log(localStorage.getItem("current_user"));
             console.log('button clicked');
             //console.log(accountsObj[0]["cart"]);
+            if(isLoggedOn == "true")
+            {
             var currentUser = JSON.parse(localStorage.getItem("current_user"));
             currentUser["cart"].push(
                 {
@@ -406,6 +413,20 @@
             var currUser = JSON.stringify(currentUser);
             localStorage.setItem("current_user",currUser);
             localStorage.setItem("accounts",accounts);
+            }
+            else{
+                guest={};
+                guest["cart"]=
+                {
+                    "imageLocation" : $('.product-gallery-column2').children().attr('src'),
+                    "price" : $('#productCost').text(),
+                    "product" : $('#productName').text(),
+                    "quantity" : "1"
+                }
+                var guestUser = JSON.stringify(guest);
+                localStorage.setItem("guest_user",guestUser);
+                console.log(localStorage.getItem("guest_user"));
+            }
         });
     </script>
 </body>
