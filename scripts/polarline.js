@@ -7,6 +7,11 @@ $(function() {
 
     // Call the Window On Load Function
     $(window).on('load', function () {
+        isLoggedOn = localStorage.getItem("isLoggedOn");
+        accounts = localStorage.getItem("accounts");
+        userData = localStorage.getItem("current_user");
+        user = JSON.parse(userData);
+
         // Validate if dummy data exists on the local storage
         if (accounts == null) {
             var accounts = 
