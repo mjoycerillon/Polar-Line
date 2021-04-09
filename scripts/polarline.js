@@ -18,8 +18,20 @@ $(function() {
                 "billing_address": "1457 London Rd, Sarnia, Ontario Canada, N7S 6K4",
                 "shipping_address": "1457 London Rd, Sarnia, Ontario Canada, N7S 6K4",
                 "birth_date": "09/22/1994",
-                "cart": []
-
+                "cart": [
+                    {
+                    "product": "Z Sweater Coat (White)",
+                    "quantity": "2",
+                    "price": "94.99",
+                    "imageLocation": "./images/shop/shop-image-1.jpg"
+                    },
+                    {
+                    "product": "Au Revoir Sweater (White)",
+                    "quantity": "1",
+                    "price": "54.99",
+                    "imageLocation": "./images/shop/shop-image-2.jpg"
+                    },
+            ]
             }];
             var accountsJSON = JSON.stringify(accounts);
             localStorage.setItem("accounts", accountsJSON);
@@ -59,7 +71,6 @@ $(function() {
         localStorage.removeItem("current_user");
         $('#navSignOutLink').remove(); // when referencing by id
     }); 
-
 
     /**
      * Login
