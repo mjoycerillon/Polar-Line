@@ -333,6 +333,28 @@
         document.querySelector('.like-button').addEventListener('click', (e) => {
         e.currentTarget.classList.toggle('liked');
         });
+
+        $('#imgDetailsGalleryCol1Image2').click(function(){
+            var x = $(this).children('img').attr('src');
+            var y = $('.product-gallery-column2').children('img').attr('src');
+            $(this).children('img').attr('src',y);
+            $('.product-gallery-column2').children('img').attr('src',x);
+            
+        });
+
+        $('#imgDetailsGalleryCol1Image1').click(function(){
+            var x = $(this).children('img').attr('src');
+            var y = $('.product-gallery-column2').children('img').attr('src');
+            $(this).children('img').attr('src',y);
+            $('.product-gallery-column2').children('img').attr('src',x);
+        });
+
+        $('#imgDetailsGalleryCol1Image3').click(function(){
+            var x = $(this).children('img').attr('src');
+            var y = $('.product-gallery-column2').children('img').attr('src');
+            $(this).children('img').attr('src',y);
+            $('.product-gallery-column2').children('img').attr('src',x);
+        });
     </script>
 </body>
 </html>
