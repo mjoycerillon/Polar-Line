@@ -20,18 +20,18 @@ $(function() {
                 "birth_date": "09/22/1994",
                 "cart": [
                     {
-                    "product": "Z Sweater Coat (White)",
-                    "quantity": "2",
-                    "price": "94.99",
-                    "imageLocation": "./images/shop/shop-image-1.jpg"
+                        "product": "Z Sweater Coat (White)",
+                        "quantity": "2",
+                        "price": "94.99",
+                        "imageLocation": "./images/shop/shop-image-1.jpg"
                     },
                     {
-                    "product": "Au Revoir Sweater (White)",
-                    "quantity": "1",
-                    "price": "54.99",
-                    "imageLocation": "./images/shop/shop-image-2.jpg"
+                        "product": "Au Revoir Sweater (White)",
+                        "quantity": "1",
+                        "price": "54.99",
+                        "imageLocation": "./images/shop/shop-image-2.jpg"
                     },
-            ]
+                    ]
             }];
             var accountsJSON = JSON.stringify(accounts);
             localStorage.setItem("accounts", accountsJSON);
@@ -122,5 +122,12 @@ $(function() {
                 localStorage.setItem("isLoggedOn", true);
             }
         }
+    });
+
+    /**
+     * Register Button
+     */
+    $('#registerForm').on('submit', function(event) {
+        console.log(accounts)
     });
 });
