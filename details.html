@@ -14,7 +14,20 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./scripts/polarline.js"></script>
+    <script src="./scripts/polarline.js">
+     $('#btnDetailsAddToBag').click(function(){
+            console.log('button clicked');
+            console.log(isLoggedOn);
+            if(isLoggedOn == "true")
+            {
+
+            }
+            /*else
+            {
+                open('login.html');
+            }*/
+        });
+    </script>
     <style>
         main{
             display: block;
@@ -48,18 +61,21 @@
         #imgDetailsGalleryCol1Image1 {
             float:left; 
             margin: 2%;
+            cursor: pointer;
         }
 
         #imgDetailsGalleryCol1Image2{
             float:left; 
             clear: left;
             margin: 2%;
+            cursor: pointer;
         }
 
         #imgDetailsGalleryCol1Image3{
             float:left; 
             clear: left;
             margin: 2%;
+            cursor: pointer;
         }
 
         #btnDetailsAddToBag{
@@ -168,12 +184,12 @@
             color: gray;
             height: 30px;
             width : 30px;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
         }
 
-        .sizeSel:focus{
-            color: black;
-            border: 1px solid black;
-        }
+       
 
     </style>
 
@@ -275,7 +291,7 @@
             </span><br><br>
             <span id="productColor">COLOR  <br><button class="colorSelBlack" ></button></span><br><br>
             <span id="productSize">SIZE  &nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Size Guide >></a><br>
-                <button class="sizeSel">S</button>&nbsp;&nbsp;<button class="sizeSel">M</button>&nbsp;&nbsp;<button class="sizeSel">L</button>&nbsp;&nbsp;<button class="sizeSel">XL</button>
+                <div class="sizeSel">S</div>&nbsp;&nbsp;<div class="sizeSel">M</div>&nbsp;&nbsp;<div class="sizeSel">L</div>&nbsp;&nbsp;<div class="sizeSel">XL</div>
             </span><br>
             <span id="productAvailability">Availability : In Stock</span> <br><br>
             <button id="btnDetailsAddToBag">ADD TO BAG</button>
@@ -354,6 +370,63 @@
             var y = $('.product-gallery-column2').children('img').attr('src');
             $(this).children('img').attr('src',y);
             $('.product-gallery-column2').children('img').attr('src',x);
+        });
+
+        $('.sizeSel').click(function(){
+            $(this).css('color','black');
+            $(this).css('border','2px solid black');
+            $(this).siblings().css('color','gray');
+            $(this).siblings().css('border','1px solid gray');
+        });
+
+        $('#btnDetailsAddToBag').click(function(){
+
+            var isLoggedOn = localStorage.getItem("isLoggedOn");
+            //console.log(isLoggedOn);
+            var accounts = localStorage.getItem("accounts");
+            
+            var accountsObj = JSON.parse(accounts);
+            //console.log(localStorage.getItem("current_user"));
+            console.log('button clicked');
+            //console.log(accountsObj[0]["cart"]);
+            if(isLoggedOn == "true")
+            {
+            var currentUser = JSON.parse(localStorage.getItem("current_user"));
+            currentUser["cart"].push(
+                {
+                    "imageLocation" : $('.product-gallery-column2').children().attr('src'),
+                    "price" : $('#productCost').text(),
+                    "product" : $('#productName').text(),
+                    "quantity" : "1"
+                }
+            );
+            accountsObj[0]["cart"].push(
+                {
+                    "imageLocation" : $('.product-gallery-column2').children().attr('src'),
+                    "price" : $('#productCost').text(),
+                    "product" : $('#productName').text(),
+                    "quantity" : "1"
+                }
+            );
+            //console.log(accountsObj[0]);
+            accounts = JSON.stringify(accountsObj);
+            var currUser = JSON.stringify(currentUser);
+            localStorage.setItem("current_user",currUser);
+            localStorage.setItem("accounts",accounts);
+            }
+            else{
+                guest={};
+                guest["cart"]=
+                {
+                    "imageLocation" : $('.product-gallery-column2').children().attr('src'),
+                    "price" : $('#productCost').text(),
+                    "product" : $('#productName').text(),
+                    "quantity" : "1"
+                }
+                var guestUser = JSON.stringify(guest);
+                localStorage.setItem("guest_user",guestUser);
+                console.log(localStorage.getItem("guest_user"));
+            }
         });
     </script>
 </body>
