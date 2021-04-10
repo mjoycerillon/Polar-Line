@@ -272,14 +272,13 @@
             localStorage.setItem("accounts",accounts);
             }
             else{
-                guest={};
-                guest["cart"]=
+                guest=[
                 {
                     "imageLocation" : $('.product-gallery-column2').children().attr('src'),
                     "price" : $('#productCost').text().substr(1,$('#productCost').text().length),
                     "product" : $('#productName').text(),
                     "quantity" : "1"
-                }
+                }]
                 var guestUser = JSON.stringify(guest);
                 localStorage.setItem("guest_user",guestUser);
                 console.log(localStorage.getItem("guest_user"));
