@@ -130,5 +130,19 @@ $(function() {
             $('#txtCartSubTotal').text("$"+cartSubTotal.toFixed(2));
             $('#txtCartTotal').text("$"+cartSubTotal.toFixed(2))
         }
+
+        $('.removeItem').on('click', function() {
+            var element = $(this).parents('.cartItem');
+            var price = $(this).parent().next().find('.cartSubTotal').text().substr(1);
+            var cartSubTotal = parseFloat($('#txtCartSubTotal').text().substr(1)) - parseFloat(price);
+            $('#txtCartSubTotal').text("$"+cartSubTotal.toFixed(2));
+            $('#txtCartTotal').text("$"+cartSubTotal.toFixed(2))  
+
+            element.animate({opacity: '0'}, 150, function(){
+                element.animate({height: '0px'}, 150, function(){
+                    element.remove();
+                });
+            });
+        });
     });    
 });
