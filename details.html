@@ -181,9 +181,12 @@
                 console.log('Name : '+prodName);
                 var imgLoc = localStorage.getItem("img_loc");
                 var prodCost = localStorage.getItem("prod_cost");
+                var prodColor = localStorage.getItem("prod_color");
                 console.log('Cost : '+prodCost);
+                console.log('Color : '+prodColor);
+                $('.colorSelBlack').css('background-color',prodColor);
                 $('#productName').text(prodName);
-                $('#productCost').text(prodCost);
+                $('#productCost').text("$"+prodCost);
                 $('.product-gallery-column2').children('img').attr('src',imgLoc);
             }
         });
@@ -249,7 +252,7 @@
             currentUser["cart"].push(
                 {
                     "imageLocation" : $('.product-gallery-column2').children().attr('src'),
-                    "price" : $('#productCost').text(),
+                    "price" : $('#productCost').text().substr(1,$('#productCost').text().length),
                     "product" : $('#productName').text(),
                     "quantity" : "1"
                 }
@@ -257,7 +260,7 @@
             accountsObj[0]["cart"].push(
                 {
                     "imageLocation" : $('.product-gallery-column2').children().attr('src'),
-                    "price" : $('#productCost').text(),
+                    "price" : $('#productCost').text().substr(1,$('#productCost').text().length),
                     "product" : $('#productName').text(),
                     "quantity" : "1"
                 }
@@ -273,7 +276,7 @@
                 guest["cart"]=
                 {
                     "imageLocation" : $('.product-gallery-column2').children().attr('src'),
-                    "price" : $('#productCost').text(),
+                    "price" : $('#productCost').text().substr(1,$('#productCost').text().length),
                     "product" : $('#productName').text(),
                     "quantity" : "1"
                 }

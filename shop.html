@@ -206,7 +206,12 @@
             $('.shop-product').click(function(){
                 var imgLoc = $(this).children('img').attr('src');
                 var prodTitle = $(this).children('.shop-product-name').text();
-                var prodPrice = $(this).children('.shop-product-cost').text();
+                var prodPrice = $(this).children('.shop-product-cost').text().substr(1,$(this).children('.shop-product-cost').text().length);
+                var prodTitleParts = $(this).children('.shop-product-name').text().split(' ');
+                
+                var color = prodTitleParts[prodTitleParts.length-2].slice(1,prodTitleParts[prodTitleParts.length-2].length-1);
+                console.log(color);
+                localStorage.setItem("prod_color",color);
                 localStorage.setItem("img_loc",imgLoc);
                 localStorage.setItem("prod_title",prodTitle);
                 localStorage.setItem("prod_cost",prodPrice);
@@ -230,7 +235,7 @@
             currentUser["cart"].push(
                 {
                     "imageLocation" : $(this).parent().children('img').attr('src'),
-                    "price" : $(this).parent().children('.shop-product-cost').text(), 
+                    "price" : $(this).parent().children('.shop-product-cost').text().substr(1,$(this).parent().children('.shop-product-cost').text().length), 
                     "product" : $(this).parent().children('.shop-product-name').text(),
                     "quantity" : "1"
                 }
@@ -238,7 +243,7 @@
             accountsObj[0]["cart"].push(
                 {
                     "imageLocation" : $(this).parent().children('img').attr('src'),
-                    "price" : $(this).parent().children('.shop-product-cost').text(), 
+                    "price" : $(this).parent().children('.shop-product-cost').text().substr(1,$(this).parent().children('.shop-product-cost').text().length),  
                     "product" : $(this).parent().children('.shop-product-name').text(),
                     "quantity" : "1"
                 }
@@ -254,7 +259,7 @@
                 guest["cart"]=
                 {
                     "imageLocation" : $(this).parent().children('img').attr('src'),
-                    "price" : $(this).parent().children('.shop-product-cost').text(), 
+                    "price" : $(this).parent().children('.shop-product-cost').text().substr(1,$(this).parent().children('.shop-product-cost').text().length), 
                     "product" : $(this).parent().children('.shop-product-name').text(),
                     "quantity" : "1"
                 }
