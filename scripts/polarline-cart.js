@@ -73,6 +73,7 @@ $(function() {
             }
         }
         else{
+            //Guest User Cart
             var guest = localStorage.getItem("guest_user");
             cart = JSON.parse(guest);
             for (i = 0; i < cart.length; i++) {
