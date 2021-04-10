@@ -178,8 +178,10 @@
                 $('#imgDetailsGalleryCol1Image2').children('img').attr('src','https://source.unsplash.com/1000x1500/?wool,jacket');
                 $('#imgDetailsGalleryCol1Image3').children('img').attr('src','https://source.unsplash.com/1000x1500/?sweater');
                 var prodName = localStorage.getItem("prod_title");
+                console.log('Name : '+prodName);
                 var imgLoc = localStorage.getItem("img_loc");
                 var prodCost = localStorage.getItem("prod_cost");
+                console.log('Cost : '+prodCost);
                 $('#productName').text(prodName);
                 $('#productCost').text(prodCost);
                 $('.product-gallery-column2').children('img').attr('src',imgLoc);
