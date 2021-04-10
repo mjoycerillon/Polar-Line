@@ -280,7 +280,7 @@
         </div>
         <div class="product-desc">
             <span id="productName">Amelie Winter Puffer Jacket </span><button class="like-button"></button><br>
-            <span id="productCost">$000</span> <br>
+            <span id="productCost">$43.99</span> <br>
             <span id="productReview">
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
@@ -346,30 +346,58 @@
           </div>
     </footer>
     <script>
+        $(window).on('load', function () {
+            var fromShopPage = localStorage.getItem("fromShopPage");
+            if(fromShopPage=="true")
+            {
+                $('#imgDetailsGalleryCol1Image1').children('img').attr('src','https://source.unsplash.com/1000x1500/?winter,clothes');
+                $('#imgDetailsGalleryCol1Image2').children('img').attr('src','https://source.unsplash.com/1000x1500/?wool,jacket');
+                $('#imgDetailsGalleryCol1Image3').children('img').attr('src','https://source.unsplash.com/1000x1500/?sweater');
+                var prodName = localStorage.getItem("prod_title");
+                var imgLoc = localStorage.getItem("img_loc");
+                var prodCost = localStorage.getItem("prod_cost");
+                $('#productName').text(prodName);
+                $('#productCost').text(prodCost);
+                $('.product-gallery-column2').children('img').attr('src',imgLoc);
+            }
+        });
         document.querySelector('.like-button').addEventListener('click', (e) => {
         e.currentTarget.classList.toggle('liked');
         });
 
         $('#imgDetailsGalleryCol1Image2').click(function(){
+            $(this).children('img').fadeOut(0);
+            $('.product-gallery-column2').children('img').fadeOut(0);
             var x = $(this).children('img').attr('src');
             var y = $('.product-gallery-column2').children('img').attr('src');
             $(this).children('img').attr('src',y);
             $('.product-gallery-column2').children('img').attr('src',x);
+            $('.product-gallery-column2').children('img').fadeIn(1500);
+            $(this).children('img').fadeIn(1500);
+            
             
         });
 
         $('#imgDetailsGalleryCol1Image1').click(function(){
+            $(this).children('img').fadeOut(0);
+            $('.product-gallery-column2').children('img').fadeOut(0);
             var x = $(this).children('img').attr('src');
             var y = $('.product-gallery-column2').children('img').attr('src');
             $(this).children('img').attr('src',y);
             $('.product-gallery-column2').children('img').attr('src',x);
+            $('.product-gallery-column2').children('img').fadeIn(1500);
+            $(this).children('img').fadeIn(1500);
         });
 
         $('#imgDetailsGalleryCol1Image3').click(function(){
+            $(this).children('img').fadeOut(0);
+            $('.product-gallery-column2').children('img').fadeOut(0);
             var x = $(this).children('img').attr('src');
             var y = $('.product-gallery-column2').children('img').attr('src');
             $(this).children('img').attr('src',y);
             $('.product-gallery-column2').children('img').attr('src',x);
+            $('.product-gallery-column2').children('img').fadeIn(1500);
+            $(this).children('img').fadeIn(1500);
         });
 
         $('.sizeSel').click(function(){
