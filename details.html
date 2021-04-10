@@ -278,13 +278,6 @@
             else{
                 guest = localStorage.getItem("guest_user");
                 guest = JSON.parse(guest);
-               // guest=[
-                //{
-                 //   "imageLocation" : $('.product-gallery-column2').children().attr('src'),
-                 //   "price" : $('#productCost').text().substr(1,$('#productCost').text().length),
-                 //   "product" : $('#productName').text(),
-                 //   "quantity" : "1"
-                //}]
                 guest.push(
                     {
                     "imageLocation" : $('.product-gallery-column2').children().attr('src'),
