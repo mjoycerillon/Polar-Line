@@ -104,7 +104,6 @@ $(function() {
         // Validate if the email match on the current data
         if (emailFound == false) {
             alert("Account does not exist!");
-            console.log("Account does not exist!")
             $("#loginForm").trigger("reset");
             $('#txtLoginEmail').focus();
             event.preventDefault();
@@ -129,10 +128,4 @@ $(function() {
         }
     });
 
-    /**
-     * Register Button
-     */
-    $('#registerForm').on('submit', function(event) {
-        console.log(accounts)
-    });
 });
