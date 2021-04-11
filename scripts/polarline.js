@@ -133,5 +133,24 @@ $(function() {
     /**
      * Register Button
      */
-   
+    $('#registerForm').on('submit', function(event) {
+        accounts=localStorage.getItem("accounts");
+        var accountsObj=JSON.parse(accounts);
+        accountsObj=JSON.parse(accounts);
+        accountsObj.push(
+            {
+                "first_name": $('#txtRegisterFirstName').val(),
+                "last_name": $('#txtRegisterLastName').val(),
+                "email": $('#txtRegisterEmail').val(),
+                "password": $('#txtRegisterPassword').val(),
+                "billing_address": "",
+                "shipping_address": "",
+                "birth_date": "",
+                "cart": []
+            }
+        );
+        accounts=JSON.stringify(accountsObj);
+        localStorage.setItem("accounts",accounts);                     
+    });
+
 });
