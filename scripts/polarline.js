@@ -97,12 +97,7 @@ $(function() {
             var tempAccount = objectData[account]
             if (tempAccount["email"] == loginEmail) {
                 emailFound = true;
-                alert("Account does not exist!");
-                console.log("Account does not exist!")
-                $("#loginForm").trigger("reset");
-                $('#txtLoginEmail').focus();
-                event.preventDefault();
-                
+                localStorage.setItem("current_user", JSON.stringify(tempAccount));
             }
         }
 
