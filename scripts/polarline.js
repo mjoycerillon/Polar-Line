@@ -148,11 +148,18 @@ $(function() {
                 "cart": []
             }
         );
-        accounts=JSON.stringify(accountsObj);
-        localStorage.setItem("accounts",accounts);    
         
-        $('#exampleModalCenter').modal('show')
+        accounts=JSON.stringify(accountsObj);
+        localStorage.setItem("accounts",accounts); 
+        $('#ModalCenter').modal('show')
+       /* Swal.fire({
+            icon: 'success',
+            title: 'you have successfully registered',
+            text: 'Welcome to polarline!',
+            
+        })  */
+                
 
     });
-
+    
 });
