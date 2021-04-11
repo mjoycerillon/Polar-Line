@@ -4,103 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Succulents Haven">
+    <meta name="description" content="Polar Line">
     <title>Polar Line | Shop</title>
     <link rel="stylesheet" href="./css/polarline.css">
+    <link rel="stylesheet" href="./css/polarline-shop.css">
+    <link rel="stylesheet" href="./plugins/SweetAlert/sweetalert2.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
     <script src="./scripts/polarline.js"></script>
-    <style>
-        .shop-banner{
-            width: 100%;
-            position: relative;
-        }
-
-        .shop-banner img{
-            height: 400px;
-            width: 100%;
-            object-fit: cover;
-        }
-
-        .banner-text{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-weight: 900;
-            font-size: 50px;
-        }
-
-        .page-loc{
-            margin-top: 20px;
-            text-align: left;
-            color: gray;
-            width: 100%;
-            font-size: 15px;
-        }
-
-        .page-loc a{
-            margin-left: 3%;
-            text-decoration: none;
-            color: gray;
-        }
-
-        .shop-sortBy{
-            width: 100%;
-            text-align: right;
-        }
-
-        .shop-sortBy select{
-            width: 170px;
-            height: 35px;
-            margin-right: 3%;
-            color: grey;
-        }
-
-        .shop-mainbody{
-            width: 100%;
-            display: inline-flex;
-        }
-
-        .shop-filters{
-            width: 25%;
-            margin: 3%;
-            padding: 3%;
-            background-color: gainsboro;
-            line-height: 30px;
-        }
-
-        .shop-product{
-            margin-top: 3%;
-            display: inline-block;
-            width: 290px;
-            transition: 0.4s ease-in-out;
-        }
-
-
-        .shop-product-image{
-            width: 90%;
-            height: auto;
-            padding: 5%;
-        }
-
-        .shop-product-name{
-            text-align: center;
-            padding-bottom: 5%;
-            line-height: 30px;
-        }
-
-        .shop-product-cost{
-            font-weight: bold;
-            text-align: center;
-            color : red;
-            padding-bottom: 5%;
-        }
-    </style>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./plugins/SweetAlert/sweetalert2.js"></script>
 </head>
 <body>
     <div id="polarline-head" class="d-flex justify-content-center">
@@ -210,82 +128,158 @@
                 <input type="checkbox" id="shopFilterLeather"/>Leather <br>
             </div>
             <div class="shop-products">
-                <div class="shop-product">
+                <div class="shop-product" data-aos="fade-right">
                     <img src="./images/shop/shop7.png" class="shop-product-image"/>
-                    <p class="shop-product-name">PolarLine Thermal Hoodie (Black)
-                        <br><span class="shop-product-cost">$94.99</span>
-                    </p>
+                    <button class="overlayButton">ADD TO BAG</button>
+                    <div class="shop-product-name">PolarLine Thermal Hoodie (Black) </div>
+                    <div class="shop-product-cost">$94.99</div>
                 </div>
-                <div class="shop-product">
+                <div class="shop-product" data-aos="fade-up">
                     <img src="./images/shop/shop2.png" class="shop-product-image"/>
-                    <p class="shop-product-name"> PolarLine Jacket (Grey)
-                        <br><span class="shop-product-cost">$82.99</span>
-                    </p>
-                    
+                    <button class="overlayButton">ADD TO BAG</button>
+                    <div class="shop-product-name">PolarLine Jacket (Grey) </div>
+                    <div class="shop-product-cost">$82.99</div>
                 </div>
-                <div class="shop-product">
+                <div class="shop-product" data-aos="fade-up">
                     <img src="./images/shop/shop3.png" class="shop-product-image"/>
-                    <p class="shop-product-name">Lil Champ Sweater Hoodie (White)
-                        <br><span class="shop-product-cost">$94.99</span>
-                    </p>
+                    <button class="overlayButton">ADD TO BAG</button>
+                    <div class="shop-product-name">Lil Champ Sweater Hoodie (White) </div>
+                    <div class="shop-product-cost">$94.99</div>
                 </div>
-                <div class="shop-product">
+                <div class="shop-product" data-aos="fade-left">
                     <img src="./images/shop/shop4.png" class="shop-product-image"/>
-                    <p class="shop-product-name">Lil Champ Thermal (Pink)
-                        <br><span class="shop-product-cost">$54.99</span>
-                    </p>
+                    <button class="overlayButton">ADD TO BAG</button>
+                    <div class="shop-product-name">Lil Champ Thermal (Pink) </div>
+                    <div class="shop-product-cost">$54.99</div>
                 </div>
-                <div class="shop-product">
+                <div class="shop-product" data-aos="fade-right">
                     <img src="./images/shop/shop5.png" class="shop-product-image"/>
-                    <p class="shop-product-name">PolarLine Thermals (Blue)
-                        <br><span class="shop-product-cost">$124.99</span>
-                    </p>
+                    <button class="overlayButton">ADD TO BAG</button>
+                    <div class="shop-product-name">PolarLine Thermals (Blue) </div>
+                    <div class="shop-product-cost">$124.99</div>
                 </div>
-                <div class="shop-product">
+                <div class="shop-product" data-aos="fade-up">
                     <img src="./images/shop/shop6.png" class="shop-product-image"/>
-                    <p class="shop-product-name">PL Hoodie (Black)
-                        <br><span class="shop-product-cost">$73.99</span>
-                    </p>
+                    <button class="overlayButton">ADD TO BAG</button>
+                    <div class="shop-product-name">PL Hoodie (Black) </div>
+                    <div class="shop-product-cost">$73.99</div>
                 </div>
-                <div class="shop-product">
+                <div class="shop-product" data-aos="fade-up">
                     <img src="./images/shop/shop-image-6.jpg" class="shop-product-image"/>
-                    <p class="shop-product-name">PolarLine Long Coat (Gray)
-                        <br><span class="shop-product-cost">$54.99</span>
-                    </p>
+                    <button class="overlayButton">ADD TO BAG</button>
+                    <div class="shop-product-name">PolarLine Long Coat (Grey) </div>
+                    <div class="shop-product-cost">$54.99</div>
                 </div>
-                <div class="shop-product">
-                    <img src="./images/shop/shop-image-7.jpg" class="shop-product-image"/>
-                    <p class="shop-product-name">XUYZ Sweater (Yellow)
-                        <br><span class="shop-product-cost">$43.99</span>
-                    </p>
+                <div class="shop-product" data-aos="fade-left">
+                    <img src="./images/shop/shop-img3.png" class="shop-product-image"/>
+                    <button class="overlayButton">ADD TO BAG</button>
+                    <div class="shop-product-name">Amelie Winter Puffer Jacket (Black) </div>
+                    <div class="shop-product-cost">$43.99</div>
                 </div>
-                <div class="shop-product">
+                <div class="shop-product" data-aos="fade-right">
                     <img src="./images/shop/shop-image-1.jpg" class="shop-product-image"/>
-                    <p class="shop-product-name">Z Sweater Coat (White)
-                        <br><span class="shop-product-cost">$94.99</span>
-                    </p>
+                    <button class="overlayButton">ADD TO BAG</button>
+                    <div class="shop-product-name">Z Sweater Coat (White) </div>
+                    <div class="shop-product-cost">$94.99</div>
                 </div>
-                <div class="shop-product">
+                <div class="shop-product" data-aos="fade-up">
                     <img src="./images/shop/shop-image-2.jpg" class="shop-product-image"/>
-                    <p class="shop-product-name">Au Revoir Sweater (White)
-                        <br><span class="shop-product-cost">$54.99</span>
-                    </p>
+                    <button class="overlayButton">ADD TO BAG</button>
+                    <div class="shop-product-name">Au Revoir Sweater (White) </div>
+                    <div class="shop-product-cost">$54.99</div>
                 </div>
-                <div class="shop-product">
+                <div class="shop-product" data-aos="fade-up">
                     <img src="./images/shop/shop-image-3.jpg" class="shop-product-image"/>
-                    <p class="shop-product-name">Polarline Long Coat (Blue)
-                        <br><span class="shop-product-cost">$0.99</span>
-                    </p>
+                    <button class="overlayButton">ADD TO BAG</button>
+                    <div class="shop-product-name">PolarLine Long Coat (Blue) </div>
+                    <div class="shop-product-cost">$0.99</div>
                 </div>
-                <div class="shop-product">
+                <div class="shop-product" data-aos="fade-left">
                     <img src="./images/shop/shop-image-4.jpg" class="shop-product-image"/>
-                    <p class="shop-product-name">Polarline Jacket (Yellow)
-                        <br><span class="shop-product-cost">$40.99</span>
-                    </p>
+                    <button class="overlayButton">ADD TO BAG</button>
+                    <div class="shop-product-name">PolarLine Jacket (Yellow) </div>
+                    <div class="shop-product-cost">$40.99</div>
                 </div>
                 
             </div>
         </div>
+        <script>
+            AOS.init();
+
+            $('.shop-product').click(function(){
+                var imgLoc = $(this).children('img').attr('src');
+                var prodTitle = $(this).children('.shop-product-name').text();
+                var prodPrice = $(this).children('.shop-product-cost').text().substr(1,$(this).children('.shop-product-cost').text().length);
+                var prodTitleParts = $(this).children('.shop-product-name').text().split(' ');
+                
+                var color = prodTitleParts[prodTitleParts.length-2].slice(1,prodTitleParts[prodTitleParts.length-2].length-1);
+                console.log(color);
+                localStorage.setItem("prod_color",color);
+                localStorage.setItem("img_loc",imgLoc);
+                localStorage.setItem("prod_title",prodTitle);
+                localStorage.setItem("prod_cost",prodPrice);
+                window.location.href="details.html";
+                var fromShopPage = true;
+                localStorage.setItem("fromShopPage",fromShopPage);
+            });
+
+            $('.overlayButton').click(function(){
+            var isLoggedOn = localStorage.getItem("isLoggedOn");
+            //console.log(isLoggedOn);
+            var accounts = localStorage.getItem("accounts");
+
+            var accountsObj = JSON.parse(accounts);
+            //console.log(localStorage.getItem("current_user"));
+            console.log('button clicked');
+            swal("Success!", $(this).parent().children('.shop-product-name').text()+ " is added to bag.", "success");
+            //console.log(accountsObj[0]["cart"]);
+            if(isLoggedOn == "true")
+            {
+            var currentUser = JSON.parse(localStorage.getItem("current_user"));
+            currentUser["cart"].push(
+                {
+                    "imageLocation" : $(this).parent().children('img').attr('src'),
+                    "price" : $(this).parent().children('.shop-product-cost').text().substr(1,$(this).parent().children('.shop-product-cost').text().length), 
+                    "product" : $(this).parent().children('.shop-product-name').text(),
+                    "quantity" : "1"
+                }
+            );
+            accountsObj[0]["cart"].push(
+                {
+                    "imageLocation" : $(this).parent().children('img').attr('src'),
+                    "price" : $(this).parent().children('.shop-product-cost').text().substr(1,$(this).parent().children('.shop-product-cost').text().length),  
+                    "product" : $(this).parent().children('.shop-product-name').text(),
+                    "quantity" : "1"
+                }
+            );
+            //console.log(accountsObj[0]);
+            accounts = JSON.stringify(accountsObj);
+            var currUser = JSON.stringify(currentUser);
+            localStorage.setItem("current_user",currUser);
+            localStorage.setItem("accounts",accounts);
+            }
+            else{
+                var guestObj = localStorage.getItem("guest_user");
+                if (guestObj == null) {
+                    guestObj = [];
+                    localStorage.setItem("guest_user",JSON.stringify(guestObj));
+                    guestObj = localStorage.getItem("guest_user");
+                }
+                guest = JSON.parse(guestObj);
+                guest.push(
+                    {
+                    "imageLocation" : $(this).parent().children('img').attr('src'),
+                    "price" : $(this).parent().children('.shop-product-cost').text().substr(1,$(this).parent().children('.shop-product-cost').text().length), 
+                    "product" : $(this).parent().children('.shop-product-name').text(),
+                    "quantity" : "1"
+                    }
+                );
+                var guestUser = JSON.stringify(guest);
+                localStorage.setItem("guest_user",guestUser);
+                console.log(localStorage.getItem("guest_user"));
+            }
+            });
+        </script>
     </main>
     <footer class="d-flex">
         <div class="container">

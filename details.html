@@ -8,190 +8,16 @@
     <meta name="description" content="Polar Line">
     <title>Polar Line | Product Details</title>
     <link rel="stylesheet" href="./css/polarline.css">
+    <link rel="stylesheet" href="./css/polarline-details.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./scripts/polarline.js">
-     $('#btnDetailsAddToBag').click(function(){
-            console.log('button clicked');
-            console.log(isLoggedOn);
-            if(isLoggedOn == "true")
-            {
+    <script src="./scripts/polarline.js"></script>
 
-            }
-            /*else
-            {
-                open('login.html');
-            }*/
-        });
-    </script>
-    <style>
-        main{
-            display: block;
-        }
-
-        .product-gallery{
-            float: left;
-            width: 60%;
-            display: inline-flex;
-        }
-        .product-desc{
-            float: left;
-            width: 40%;
-            margin-top: 2.5%;
-            
-        }
-
-        .product-gallery-column1{
-            display: grid;
-            padding: 5%;
-        }
-
-        .product-gallery-column2{
-            margin-left:auto;
-            margin-right:auto;
-            width: 50%; 
-            padding: 5%;
-        }
-
-     
-        #imgDetailsGalleryCol1Image1 {
-            float:left; 
-            margin: 2%;
-            cursor: pointer;
-        }
-
-        #imgDetailsGalleryCol1Image2{
-            float:left; 
-            clear: left;
-            margin: 2%;
-            cursor: pointer;
-        }
-
-        #imgDetailsGalleryCol1Image3{
-            float:left; 
-            clear: left;
-            margin: 2%;
-            cursor: pointer;
-        }
-
-        #btnDetailsAddToBag{
-            background-color: black;
-            color: white;
-            transition: 0.3s ease-in-out;
-            height: 40px;
-            width: 150px;
-            font-size: 20px;
-            padding: 5px;
-        }
-
-        #btnDetailsAddToBag:hover{
-            background-color: white;
-            border : 2px solid black;
-            color: black;
-        }
-
-        .product-description{
-            color: gray;
-            font-size: 15px;
-        }
-
-        a{
-            font-size: 13px;
-            color: brown;
-            text-decoration: none;
-        }
-
-        #productName {
-            font-weight: bold;
-            font-size: 35px;
-        }
-
-        #productCost{
-            font-weight: bold;
-            font-size: 35px;
-            color: red;
-        }
-
-        #productReview{
-            font-weight: bold;
-        }
-
-        .checked {
-             color: orange;
-        }
-
-        #productSize{
-            font-weight: bold;
-        }
-
-        #productAvailability{
-            font-size: small;
-            color: grey;
-        }
-
-        .like-button {
-         display: inline-block;
-        position: relative;
-        font-size: 32px;
-        cursor: pointer;
-        }
-        .like-button::before {
-            font-size: 35px;
-            color: #000;
-            content: '❤';
-            position: absolute;
-            left: 53%;
-            top: 45%;
-            transform: translate(-50%, -50%);
-        }
-        .like-button::after {
-            font-size: 35px;
-            color: red;
-            content: '❤';
-            position: absolute;
-            left: 53%;
-            top: 45%;
-            transform: translate(-50%, -50%) scale(0);
-            transition: transform 0.2s;
-        }
-
-        .like-button.liked::after {
-            transform: translate(-50%, -50%) scale(1.1);
-        }
-
-        .colorSelBlack{
-            height: 28px;
-            width: 28px;
-            background-color: black;
-            border: 3px solid grey;
-        }
-
-        .colorSelBlack:focus{
-            border: 4px solid red;
-        }
-
-        #productColor{
-            font-weight: bold;
-        }
-
-        .sizeSel{
-            border: 1px solid gray;
-            background-color: white;
-            color: gray;
-            height: 30px;
-            width : 30px;
-            display: inline-block;
-            text-align: center;
-            cursor: pointer;
-        }
-
-       
-
-    </style>
 
 </head>
 <body>
@@ -280,7 +106,7 @@
         </div>
         <div class="product-desc">
             <span id="productName">Amelie Winter Puffer Jacket </span><button class="like-button"></button><br>
-            <span id="productCost">$000</span> <br>
+            <span id="productCost">$43.99</span> <br>
             <span id="productReview">
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
@@ -346,30 +172,63 @@
           </div>
     </footer>
     <script>
+        $(window).on('load', function () {
+            var fromShopPage = localStorage.getItem("fromShopPage");
+            if(fromShopPage=="true")
+            {
+                $('#imgDetailsGalleryCol1Image1').children('img').attr('src','https://source.unsplash.com/1000x1500/?winter,clothes');
+                $('#imgDetailsGalleryCol1Image2').children('img').attr('src','https://source.unsplash.com/1000x1500/?wool,jacket');
+                $('#imgDetailsGalleryCol1Image3').children('img').attr('src','https://source.unsplash.com/1000x1500/?sweater');
+                var prodName = localStorage.getItem("prod_title");
+                console.log('Name : '+prodName);
+                var imgLoc = localStorage.getItem("img_loc");
+                var prodCost = localStorage.getItem("prod_cost");
+                var prodColor = localStorage.getItem("prod_color");
+                console.log('Cost : '+prodCost);
+                console.log('Color : '+prodColor);
+                $('.colorSelBlack').css('background-color',prodColor);
+                $('#productName').text(prodName);
+                $('#productCost').text("$"+prodCost);
+                $('.product-gallery-column2').children('img').attr('src',imgLoc);
+            }
+        });
         document.querySelector('.like-button').addEventListener('click', (e) => {
         e.currentTarget.classList.toggle('liked');
         });
 
         $('#imgDetailsGalleryCol1Image2').click(function(){
+            $(this).children('img').fadeOut(0);
+            $('.product-gallery-column2').children('img').fadeOut(0);
             var x = $(this).children('img').attr('src');
             var y = $('.product-gallery-column2').children('img').attr('src');
             $(this).children('img').attr('src',y);
             $('.product-gallery-column2').children('img').attr('src',x);
+            $('.product-gallery-column2').children('img').fadeIn(1500);
+            $(this).children('img').fadeIn(1500);
+            
             
         });
 
         $('#imgDetailsGalleryCol1Image1').click(function(){
+            $(this).children('img').fadeOut(0);
+            $('.product-gallery-column2').children('img').fadeOut(0);
             var x = $(this).children('img').attr('src');
             var y = $('.product-gallery-column2').children('img').attr('src');
             $(this).children('img').attr('src',y);
             $('.product-gallery-column2').children('img').attr('src',x);
+            $('.product-gallery-column2').children('img').fadeIn(1500);
+            $(this).children('img').fadeIn(1500);
         });
 
         $('#imgDetailsGalleryCol1Image3').click(function(){
+            $(this).children('img').fadeOut(0);
+            $('.product-gallery-column2').children('img').fadeOut(0);
             var x = $(this).children('img').attr('src');
             var y = $('.product-gallery-column2').children('img').attr('src');
             $(this).children('img').attr('src',y);
             $('.product-gallery-column2').children('img').attr('src',x);
+            $('.product-gallery-column2').children('img').fadeIn(1500);
+            $(this).children('img').fadeIn(1500);
         });
 
         $('.sizeSel').click(function(){
@@ -386,8 +245,10 @@
             var accounts = localStorage.getItem("accounts");
             
             var accountsObj = JSON.parse(accounts);
+            var prodName = localStorage.getItem("prod_title");
             //console.log(localStorage.getItem("current_user"));
             console.log('button clicked');
+            swal("Success!", prodName+ " is added to bag.", "success");
             //console.log(accountsObj[0]["cart"]);
             if(isLoggedOn == "true")
             {
@@ -395,7 +256,7 @@
             currentUser["cart"].push(
                 {
                     "imageLocation" : $('.product-gallery-column2').children().attr('src'),
-                    "price" : $('#productCost').text(),
+                    "price" : $('#productCost').text().substr(1,$('#productCost').text().length),
                     "product" : $('#productName').text(),
                     "quantity" : "1"
                 }
@@ -403,7 +264,7 @@
             accountsObj[0]["cart"].push(
                 {
                     "imageLocation" : $('.product-gallery-column2').children().attr('src'),
-                    "price" : $('#productCost').text(),
+                    "price" : $('#productCost').text().substr(1,$('#productCost').text().length),
                     "product" : $('#productName').text(),
                     "quantity" : "1"
                 }
@@ -415,14 +276,21 @@
             localStorage.setItem("accounts",accounts);
             }
             else{
-                guest={};
-                guest["cart"]=
-                {
+                var guestObj = localStorage.getItem("guest_user");
+                if (guestObj == null) {
+                    guestObj = [];
+                    localStorage.setItem("guest_user",JSON.stringify(guestObj));
+                    guestObj = localStorage.getItem("guest_user");
+                }
+                guest = JSON.parse(guestObj);
+                guest.push(
+                    {
                     "imageLocation" : $('.product-gallery-column2').children().attr('src'),
-                    "price" : $('#productCost').text(),
+                    "price" : $('#productCost').text().substr(1,$('#productCost').text().length),
                     "product" : $('#productName').text(),
                     "quantity" : "1"
-                }
+                    }
+                );
                 var guestUser = JSON.stringify(guest);
                 localStorage.setItem("guest_user",guestUser);
                 console.log(localStorage.getItem("guest_user"));

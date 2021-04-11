@@ -108,7 +108,10 @@ $(function() {
 
         // Validate if the email match on the current data
         if (emailFound == false) {
-            localStorage.setItem("current_user", JSON.stringify(tempAccount));            
+            alert("Account does not exist!");
+            $("#loginForm").trigger("reset");
+            $('#txtLoginEmail').focus();
+            event.preventDefault();
 
         } else {
             userData = localStorage.getItem("current_user");
@@ -133,24 +136,6 @@ $(function() {
     /**
      * Register Button
      */
-    $('#registerForm').on('submit', function(event) {
-        accounts=localStorage.getItem("accounts");
-        var accountsObj=JSON.parse(accounts);
-        accountsObj=JSON.parse(accounts);
-        accountsObj.push(
-            {
-                "first_name": $('#txtRegisterFirstName').val(),
-                "last_name": $('#txtRegisterLastName').val(),
-                "email": $('#txtRegisterEmail').val(),
-                "password": $('#txtRegisterPassword').val(),
-                "billing_address": "",
-                "shipping_address": "",
-                "birth_date": "",
-                "cart": []
-            }
-        );
-        accounts=JSON.stringify(accountsObj);
-        localStorage.setItem("accounts",accounts);                     
-    });
+
 
 });
