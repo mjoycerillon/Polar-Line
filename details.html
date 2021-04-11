@@ -276,8 +276,13 @@
             localStorage.setItem("accounts",accounts);
             }
             else{
-                guest = localStorage.getItem("guest_user");
-                guest = JSON.parse(guest);
+                var guestObj = localStorage.getItem("guest_user");
+                if (guestObj == null) {
+                    guestObj = [];
+                    localStorage.setItem("guest_user",JSON.stringify(guestObj));
+                    guestObj = localStorage.getItem("guest_user");
+                }
+                guest = JSON.parse(guestObj);
                 guest.push(
                     {
                     "imageLocation" : $('.product-gallery-column2').children().attr('src'),
