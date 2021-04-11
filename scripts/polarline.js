@@ -7,6 +7,7 @@ $(function() {
 
     // Call the Window On Load Function
     $(window).on('load', function () {
+
         isLoggedOn = localStorage.getItem("isLoggedOn");
         accounts = localStorage.getItem("accounts");
         userData = localStorage.getItem("current_user");
@@ -131,7 +132,7 @@ $(function() {
     /**
      * Register Button
      */
-     $('#registerForm').on('submit', function(event) {
+        $('#registerForm').on('submit', function(event) {
         accounts=localStorage.getItem("accounts");
         var accountsObj=JSON.parse(accounts);
         accountsObj=JSON.parse(accounts);
@@ -148,8 +149,10 @@ $(function() {
             }
         );
         accounts=JSON.stringify(accountsObj);
-        localStorage.setItem("accounts",accounts);                     
-    });
+        localStorage.setItem("accounts",accounts);    
+        
+        $('#exampleModalCenter').modal('show')
 
+    });
 
 });
