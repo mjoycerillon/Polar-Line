@@ -44,6 +44,22 @@ $(function() {
 
         }
 
+        function emptyCart() {
+            var card = 
+                '<div class="card mb-2" style="width: 90%;">' +
+                    '<div class="card-body">' +
+                        '<div class="row justify-content-center align-items-center" style="height: 403px;">' +
+                            '<div class="row w-50">' +
+                                '<img class="img-fluid" src="./images/cart/cart-empty.png" alt="" height="50px">' +
+                            '</div>' +
+                            '<div class="row justify-content-center fw-bolder" style="font-size: 20px;">You have no items in your shopping cart.</div>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>'
+                $("#cartContainer").append(card);
+            
+        }
+
         function loadCart(cart) {
             var cartSubTotal = 0.0;
             if (cart != null) {
@@ -112,19 +128,7 @@ $(function() {
                     $('#cartContainer').append(card);
                 }
             } else {
-                var card = 
-                    '<div class="card mb-2" style="width: 90%;">' +
-                        '<div class="card-body">' +
-                            '<div class="row justify-content-center align-items-center" style="height: 403px;">' +
-                                '<div class="row w-50">' +
-                                    '<img class="img-fluid" src="./images/cart/cart-empty.png" alt="" height="50px">' +
-                                '</div>' +
-                                '<div class="row justify-content-center fw-bolder" style="font-size: 20px;">You have no items in your shopping cart.</div>' +
-                            '</div>' +
-                        '</div>' +
-                    '</div>'
-
-                $('#cartContainer').append(card);
+                emptyCart();
             }
 
             $('#txtCartSubTotal').text("$"+cartSubTotal.toFixed(2));
@@ -143,6 +147,10 @@ $(function() {
                     element.remove();
                 });
             });
+
+            if (cartSubTotal == 0.0) {
+                emptyCart();
+            }
         });
     });    
 });
