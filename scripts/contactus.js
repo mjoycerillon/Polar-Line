@@ -22,36 +22,85 @@ $(document).ready(function () {
         }
       
        // Validate Email
-        const email = 
-            document.getElementById('email');
-        email.addEventListener('blur', ()=>{
-           let regex =
-    /^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/;
-           let s = email.value;
-           if(regex.test(s)){
-              email.classList.remove(
-                    'is-invalid');
-              emailError = true;
+       $('#usermail').hide();    
+       let usermailError = true;
+       $('#email').keyup(function () {
+          validateEmail();
+         });
+
+         function validateEmail() {
+            let regex = /^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/;
+            let s = $('#email').val();
+            if(s.length == ''){
+                usermailError = false;
+                $('#usermail').show(); 
+                return false;
+                
+            }
+         else if(!(regex.test(s))){
+                usermailError = false;
+                $('#usermail').show(); 
+                return false;
+                  
             }
             else{
-                email.classList.add(
-                      'is-invalid');
-                emailError = false;
+                $('#usermail').hide(); 
+                // usermailError = false;
             }
-        })
+         }
+        $('#phonemsg').hide();    
+        let phoneError = true;
+        $('#txtContactNumber').keyup(function () {
+            validateTelephone();
+        });
           
+        function validateTelephone() {
+          var regexPattern = /^[0-9-+]+$/;
+          let phoneValue = $('#txtContactNumber').val();
+          if (phoneValue.length == '') {
+             $('#phonemsg').show();
+              phoneError = false;
+              return false;
+          } 
+        else if(!(regexPattern.test(phoneValue))){
+             $('#phonemsg').show();
+             phoneError = false;
+              return false;
+          }
+          else {
+              $('#phonemsg').hide(); 
+          }
+        } 
+        
+        $('#textMsg').hide();    
+        let textError = true;
+        $('#txtContactMessage').keyup(function () {
+            validateTextmessage();
+        });
 
+        function validateTextmessage() {
+            let textValue = $('#txtContactMessage').val();
+            if (textValue.length == '') {
+               $('#textMsg').show();
+                textError = false;
+                return false;
+            } 
+            else {
+                $('#textMsg').hide(); 
+            }
+          }
+    
           
     // Submitt button
-        $('#submitbtn').click(function () {
+        $('#btnContactSubmit').click(function () {
             validateUsername();
-            validatePassword();
-            validateConfirmPasswrd();
+            validateTelephone();
+            validateTextmessage();
             validateEmail();
             if ((usernameError == true) && 
-                (passwordError == true) && 
-                (confirmPasswordError == true) && 
-                (emailError == true)) {
+                (usermailError == true) && 
+                (phoneError == true) && 
+                (textError == true)) {
                 return true;
             } else {
                 return false;
