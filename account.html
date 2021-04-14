@@ -89,34 +89,75 @@
         </div>
     </nav>
     <main>
-        <div class="user"></div>
-        <div id="heading">
-            <h2>Personal details</h2>
-            <input type="button" class="editbutton" value="+ edit" />
-        </div>
-        <div id="detail">
-            <h3>Name:</h3>
-            <h3>Email:</h3>
-            <h3>Date of birth:</h3>
-            <h3>Password:</h3>
-        </div>
+        <div class="container">
+			<div id="heading">
+				<h2>Personal details</h2>	
+			</div><br><br>
+			<button id="edit1">edit</button>
+			<label>Name  </label>
+			<input type="text" id="username" disabled /><br>
+			<label>Email  </label>
+			<input type="email" id="mail" disabled /><br>
+			<label>Phone  </label>
+			<input type="tel" id="phone" disabled /><br>
+			<label>D.o.B:  </label>
+			<input type="date" id="age" disabled><br>	
+			<label>Password</label>
+			<input type="password" value="" id="password" disabled>
+			<input type="checkbox" id="check" onclick="myFunction()"><br>
+			<button id="submit1" style="display: none">submit</button><br>
 
-        <div class="address"></div>
-        <div id="heading">
-        <h2>Billing/Shipping Addresses</h2></div>
-        <div id="billing">
-            <input type="button" class="editbutton" value="+ edit" />
-            <h3>BILLING ADDRESS</h3>
-            <p>#605, 1457 London Rd, <br>Sarnia, Ontario <br> Canada, N7S 6K4</p>
-        </div>
-        <div id="shipping">
-            <input type="button" class="editbutton" value="+ edit" />   
-            <h3>SHIPPING ADDRESS</h3>
-            <p>#605, 1457 London Rd, <br>Sarnia, Ontario <br> Canada, N7S 6K4</p>
-        </div>
-        <div>
-            <input type="button" class="addressbutton" value="+ NEW ADDRESS" />   
-        </div>
+			<br>
+			<div id="heading">
+				<h2>Billing/Shipping Address</h2></div>	<br>
+			
+				<button id="edit2">edit</button><br>
+				<h3> BILLING ADDRESS </h3>
+				<textarea id="billing" rows="4" cols="25" disabled></textarea><br>
+				<button id="submit2" style="display: none">submit</button>
+
+				<br>
+				<button id="edit3">edit</button><br>
+				<h3> SHIPPING ADDRESS </h3>
+				<textarea id="shipping" rows="4" cols="25" disabled></textarea><br>
+				<button id="submit3" style="display: none">submit</button><br>
+			</div>
+		
+
+		<style>
+			#edit1, #edit2, #edit3{float: right; margin-right: 900px; margin-top: 8px;}
+			button{color: white; background-color: black; display: inline-block; font-size: 18px;}
+			button:hover{background-color:teal; color: white;}
+			button:active {box-shadow: 0 5px #666; transform: translateY(0.1px);}
+			#heading{
+					color:white;
+					background-color: black; 
+					display: inline-block;
+					text-align-last: center;
+					box-sizing: border-box;
+					width: 100%;
+					}
+			input{
+					width: 15%;
+					padding: 5px 5px;
+					font-size: 15px;
+					font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
+					margin: 7px 0;
+					box-sizing: border-box;
+					}
+
+			textarea {
+					font-size: 16px;
+					font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
+					box-sizing: border-box;
+					}
+
+			label{
+					font-size: 16px;
+					font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
+					}
+
+		</style>
     </main>
     <footer>
         <div class="footer-col-40">
@@ -149,5 +190,6 @@
             </form>
         </div>
     </footer>
+    <script src="./scripts/polar_account_app.js"></script>
 </body>
 </html>
