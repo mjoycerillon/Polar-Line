@@ -14,7 +14,6 @@ $(function() {
                 cart = JSON.parse(guest_user);
             }
         }
-        
         loadCart(cart);
 
         $('.cart-minus').on('click', function() {
@@ -33,7 +32,7 @@ $(function() {
             $(this).parents('.cartItem').find('.cartItemQuantity').val(parseInt(currentQuantity) + 1);
             updateItemSubtotal($(this));
         }); 
-    
+
         function updateItemSubtotal(element){
             var itemPrice = $(element).parents('.cartItem').find('.cartItemPrice').text().substr(1);
             var itemQuantity = $(element).parents('.cartItem').find('.cartItemQuantity').val();
@@ -74,7 +73,26 @@ $(function() {
                 });
             });
             var updateCurrentUser = JSON.stringify(currentUser);
-            localStorage.setItem("current_user",updateCurrentUser);
+            localStorage.setItem("current_user", updateCurrentUser);
+
+            // Retrieve the data from the local storage and parse it
+            var loginData = localStorage.getItem("accounts");
+            var objectData = JSON.parse(loginData);
+            var emailFound = false;
+    
+            // Find the account and save it into global variable account
+            for (i = 0; i < objectData.length; i++) {
+                var tempAccount = objectData[i]
+                console.log(tempAccount)
+                if (tempAccount["email"] == currentUser["email"]) {
+                    emailFound = true;
+                    objectData.splice(i, 1);
+                    break;
+                }
+            }
+            objectData.push(currentUser);
+            localStorage.setItem("accounts",JSON.stringify(objectData));
+
         }
 
         function loadCart(cart) {

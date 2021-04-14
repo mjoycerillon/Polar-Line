@@ -78,16 +78,8 @@ $(function() {
         $('#navSignOutLink').remove(); // when referencing by id
     }); 
 
-    /**
-     * Login
-     */
-    // Upon login, save the data of the user to local storage
-    $('#loginForm').on('submit', function(event) {
 
-        // Get value of Login Email and Password
-        var loginEmail = $('#txtLoginEmail').val();
-        var loginPassword = $('#txtLoginPassword').val();
-
+    function retrieveAccount(loginEmail) {
         // Retrieve the data from the local storage and parse it
         var loginData = localStorage.getItem("accounts");
         var objectData = JSON.parse(loginData);
@@ -101,10 +93,29 @@ $(function() {
                 localStorage.setItem("current_user", JSON.stringify(tempAccount));
             }
         }
+        
+        return emailFound;
+    }
+
+    /**
+     * Login
+     */
+    // Upon login, save the data of the user to local storage
+    $('#loginForm').on('submit', function(event) {
+
+        // Get value of Login Email and Password
+        var loginEmail = $('#txtLoginEmail').val();
+        var loginPassword = $('#txtLoginPassword').val();
+
+        accountFound = retrieveAccount(loginEmail);
 
         // Validate if the email match on the current data
-        if (emailFound == false) {
-            alert("Account does not exist!");
+        if (accountFound == false) {
+            var alert = 
+            '<div class="alert alert-danger" role="alert">' +
+                'The email or password you entered is incorrect. Please try again.' +
+            '</div>';
+            $("#loginForm").prepend(alert);
             $("#loginForm").trigger("reset");
             $('#txtLoginEmail').focus();
             event.preventDefault();
