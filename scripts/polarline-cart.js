@@ -17,31 +17,29 @@ $(function() {
         $('.cart-minus').on('click', function() {
             var currentQuantity = $(this).siblings('.cartItemQuantity').val();
             if (currentQuantity > 0) {
-                $(this).siblings('.cartItemQuantity').val(parseInt(currentQuantity) - 1);
-				var cartItemId = $(this).siblings('.cartItemQuantity').data("cart-id");
-                var cartItemSubtotal = $(this).siblings('.cartItemQuantity').data("sub-total-id");
-                updateItemSubtotal($(this), cartItemId, cartItemSubtotal);
+                var currentQuantity = $(this).parents('.cartItem').find('.cartItemQuantity').val();
+                if (currentQuantity > 0) {
+                    $(this).parents('.cartItem').find('.cartItemQuantity').val(parseInt(currentQuantity) - 1);
+                    updateItemSubtotal($(this));
+                }
             } 
         }); 
     
         $('.cart-add').on('click', function() {
-            var currentQuantity = $(this).siblings('.cartItemQuantity').val();
-            $(this).siblings('.cartItemQuantity').val(parseInt(currentQuantity) + 1);
-            var cartItemId = $(this).siblings('.cartItemQuantity').data("cart-id");
-            var cartItemSubtotal = $(this).siblings('.cartItemQuantity').data("sub-total-id");
-            updateItemSubtotal($(this), cartItemId, cartItemSubtotal);
+            var currentQuantity = $(this).parents('.cartItem').find('.cartItemQuantity').val();
+            $(this).parents('.cartItem').find('.cartItemQuantity').val(parseInt(currentQuantity) + 1);
+            updateItemSubtotal($(this));
         }); 
     
-        function updateItemSubtotal(element, cartItemId, cartItemSubtotalId){
-            var itemPrice = $(element).parents().find('#'+cartItemId).text().substr(1);
-            var itemQuantity = $(element).siblings('.cartItemQuantity').val();
+        function updateItemSubtotal(element){
+            var itemPrice = $(element).parents('.cartItem').find('.cartItemPrice').text().substr(1);
+            var itemQuantity = $(element).parents('.cartItem').find('.cartItemQuantity').val();
             var subTotal = parseFloat(itemPrice) * parseFloat(itemQuantity);
             var currentSubTotal = parseFloat($(element).parents('.cartItem').find('.cartSubTotal').text().substr(1));
             var cartSubTotal = (parseFloat($('#txtCartSubTotal').text().substr(1)) - currentSubTotal) + subTotal;
-            $(element).parents().find('#'+cartItemSubtotalId).text('$'+ subTotal.toFixed(2));
+            $(element).parents('.cartItem').find('.cartSubTotal').text('$'+ subTotal.toFixed(2));
             $('#txtCartSubTotal').text("$"+cartSubTotal.toFixed(2));
-            $('#txtCartTotal').text("$"+cartSubTotal.toFixed(2))  
-
+            $('#txtCartTotal').text("$"+cartSubTotal.toFixed(2))
         }
 
         function emptyCart() {
@@ -100,7 +98,7 @@ $(function() {
                                           '<div class="col align-items-center">' +
                                               '<div class="container">' +
                                                   '<div class="row justify-content-center">Price</div>' +
-                                                  '<div id="cartItemPrice' + i + '" class="row justify-content-center text-danger fw-bolder">$'+ productPrice +'</div>' +
+                                                  '<div class="row justify-content-center text-danger fw-bolder cartItemPrice">$'+ productPrice +'</div>' +
                                               '</div>' +
                                           '</div>' +
                                           '<div class="col align-items-center">' +
