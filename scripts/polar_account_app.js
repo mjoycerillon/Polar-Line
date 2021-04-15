@@ -12,6 +12,25 @@ const shipDOM = document.getElementById('ship');
 
 /* Page onload previous data from localstorage */
 window.addEventListener('load', () => {
+    
+    const user = JSON.parse(localStorage.getItem('current_user'));
+    fnameDOM.value = user.first_name;
+    lnameDOM.value = user.last_name;
+    mailDOM.value = user.email;
+    const d = user.birth_date.split('/'); //date needs to be formatted "09/22/1994" mm-dd-yyyy.. yyyy-mm-dd
+    const myDate = `${d[2]}-${d[0]}-${d[1]}`;
+    ageDOM.value = myDate;
+
+
+
+
+
+    pwdDOM.value = user.password; 
+    billDOM.value = user.billing_address;
+    shipDOM.value = user.shipping_address;
+
+
+    /*
 	const fn = JSON.parse(localStorage.getItem('Obj_firstNAME'));
 	fnameDOM.value = fn.fname;
 
@@ -34,7 +53,7 @@ window.addEventListener('load', () => {
 	billDOM.value = f6.bill;
 
     const f7 = JSON.parse(localStorage.getItem('Obj_SHIPPING'));
-	shipDOM.value = f7.ship;
+	shipDOM.value = f7.ship; */
 
     
     
@@ -67,6 +86,10 @@ edit3.addEventListener('click',(e)=>{
 
 /* Edit (or) Enter data and push inputs to localstorage */
 submit1.addEventListener('click', (e) => {
+
+
+
+    /*
 	const first_name = JSON.stringify({ fname: fnameDOM.value });
 	localStorage.setItem('Obj_firstNAME', first_name);
 
@@ -83,7 +106,7 @@ submit1.addEventListener('click', (e) => {
 	localStorage.setItem('Obj_AGE', user_age);
 
     const user_password = JSON.stringify({ pwd: pwdDOM.value });
-	localStorage.setItem('Obj_PASSWORD', user_password);
+	localStorage.setItem('Obj_PASSWORD', user_password); */
 
     
 
