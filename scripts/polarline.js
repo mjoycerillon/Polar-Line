@@ -24,7 +24,7 @@ $(function() {
                 "phone": "",
                 "billing_address": "1457 London Rd, Sarnia, Ontario Canada, N7S 6K4",
                 "shipping_address": "1457 London Rd, Sarnia, Ontario Canada, N7S 6K4",
-                "birth_date": "09/22/1994",
+                "birth_date": "1994-09-22",
                 "cart": [
                     {
                         "product": "Z Sweater Coat (White)",
