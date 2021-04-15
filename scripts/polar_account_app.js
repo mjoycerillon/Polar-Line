@@ -1,82 +1,38 @@
-/* Creating DOM Variables */
-const fnameDOM = document.getElementById('fname');
-const lnameDOM = document.getElementById('lname');
-const mailDOM = document.getElementById('mail');
-const phoneDOM = document.getElementById('phone');
-const ageDOM = document.getElementById('age');
-const pwdDOM = document.getElementById('pwd');
-const billDOM = document.getElementById('bill');
-const shipDOM = document.getElementById('ship');
+$(function() {
 
-
-
-/* Page onload previous data from localstorage */
-window.addEventListener('load', () => {
+    /* Page onload previous data from localstorage */
+    $(window).on('load', function () {
     
-    const user = JSON.parse(localStorage.getItem('current_user'));
-    fnameDOM.value = user.first_name;
-    lnameDOM.value = user.last_name;
-    mailDOM.value = user.email;
-    const d = user.birth_date.split('/'); //date needs to be formatted "09/22/1994" mm-dd-yyyy.. yyyy-mm-dd
-    const myDate = `${d[2]}-${d[0]}-${d[1]}`;
-    ageDOM.value = myDate;
+        const user = JSON.parse(localStorage.getItem('current_user'));
+        $('#fname').val(user.first_name);
+        $('#lname').val(user.last_name);
+        $('#mail').val(user.email);
+        $('#phone').val(user.phone);
+        $('#age').val(user.birth_date);
+        $('#pwd').val(user.password);
 
+        $('#bill').val(user.billing_address);
+        $('#ship').val(user.shipping_address);
 
-
-
-
-    pwdDOM.value = user.password; 
-    billDOM.value = user.billing_address;
-    shipDOM.value = user.shipping_address;
-
-    const f3 = JSON.parse(localStorage.getItem('Obj_PHONE'));
-	phoneDOM.value = f3.phone;
-
-
-    /*
-	const fn = JSON.parse(localStorage.getItem('Obj_firstNAME'));
-	fnameDOM.value = fn.fname;
-
-    const ln = JSON.parse(localStorage.getItem('Obj_lastNAME'));
-	lnameDOM.value = ln.lname;
-
-    const f2 = JSON.parse(localStorage.getItem('Obj_MAIL'));
-	mailDOM.value = f2.mail;
-
-    const f3 = JSON.parse(localStorage.getItem('Obj_PHONE'));
-	phoneDOM.value = f3.phone;
-
-    const f4 = JSON.parse(localStorage.getItem('Obj_AGE'));
-	ageDOM.value = f4.age;
-
-    const f5 = JSON.parse(localStorage.getItem('Obj_PASSWORD'));
-	pwdDOM.value = f5.pwd;
-
-    const f6 = JSON.parse(localStorage.getItem('Obj_BILLING'));
-	billDOM.value = f6.bill;
-
-    const f7 = JSON.parse(localStorage.getItem('Obj_SHIPPING'));
-	shipDOM.value = f7.ship; */
-
-    
-    
-});
+    });
 
 /* Enable feilds, submit button in personal details */
 edit1.addEventListener('click', (e) => {
-	fnameDOM.disabled = false;
-    lnameDOM.disabled = false;
-    mailDOM.disabled = false;
-    phoneDOM.disabled = false;
-    ageDOM.disabled = false;
-    pwdDOM.disabled = false;
+	$('#fname').prop( "disabled", false );
+    $('#lname').prop( "disabled", false );
+    $('#mail').prop( "disabled", false );
+    $('#phone').prop( "disabled", false );
+    $('#age').prop( "disabled", false );
+    $('#pwd').prop( "disabled", false );
+
     submit1.style.display = 'inline-block';
 });
 
 /* Enable feild, submit button at Billing address */
-edit2.addEventListener('click',(e)=>{
-    billDOM.disabled = false;
-    submit2.style.display = 'inline-block';
+$('#edit2').on('click', function() {
+//edit2.addEventListener('click',(e)=>{
+    // billDOM.disabled = false;
+    $('#submit2').show();
 
 });
 
@@ -88,41 +44,23 @@ edit3.addEventListener('click',(e)=>{
 });
 
 /* Edit (or) Enter data and push inputs to localstorage */
-submit1.addEventListener('click', (e) => {
-
-    const user_phone = JSON.stringify({ phone: phoneDOM.value });
-	localStorage.setItem('Obj_PHONE', user_phone);
-
-
-
-    /*
-	const first_name = JSON.stringify({ fname: fnameDOM.value });
-	localStorage.setItem('Obj_firstNAME', first_name);
-
-    const last_name = JSON.stringify({ lname: lnameDOM.value });
-	localStorage.setItem('Obj_lastNAME', last_name);
-
-    const user_mail = JSON.stringify({ mail: mailDOM.value });
-	localStorage.setItem('Obj_MAIL', user_mail);
-
-    const user_phone = JSON.stringify({ phone: phoneDOM.value });
-	localStorage.setItem('Obj_PHONE', user_phone);
-
-    const user_age = JSON.stringify({ age: ageDOM.value });
-	localStorage.setItem('Obj_AGE', user_age);
-
-    const user_password = JSON.stringify({ pwd: pwdDOM.value });
-	localStorage.setItem('Obj_PASSWORD', user_password); */
-
+$('#submit1').on('click', function() {
     
+    // var current_user = 
+    // {
+    //     "first_name": $('#fname').val(),
+    //     "last_name": "Green",
+    //     "email": "rachelgreen@gmail.com",
+    //     "password": "polar",
+    //     "phone": "",
+    //     "billing_address": "1457 London Rd, Sarnia, Ontario Canada, N7S 6K4",
+    //     "shipping_address": "1457 London Rd, Sarnia, Ontario Canada, N7S 6K4",
+    //     "birth_date": "09/22/1994",
+    //     "cart": []
+    // };
+    // var accountsJSON = JSON.stringify(accounts);
+    // localStorage.setItem("accounts", accountsJSON);
 
-    fnameDOM.disabled = true;
-    lnameDOM.disabled = true;
-    mailDOM.disabled = true;
-    phoneDOM.disabled = true;
-    ageDOM.disabled = true;
-    pwdDOM.disabled = true;
-    
      
 });
 
@@ -140,15 +78,12 @@ submit3.addEventListener('click', (e) => {
 
 
 /* Password visibility function */
-function myFunction(){
-    var x = document.getElementById("pwd");
-    if (x.type === "password") {
-      x.type = "text";
+$('#check').on('click', function() {
+    if ($('#pwd').attr('type') === 'password') {
+        $('#pwd').attr('type', 'text'); 
     } else {
-      x.type = "password";
+        $('#pwd').attr('type', 'password'); 
     }
-}
+});
 
-
-
-
+});
