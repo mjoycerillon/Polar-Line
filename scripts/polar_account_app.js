@@ -29,6 +29,9 @@ window.addEventListener('load', () => {
     billDOM.value = user.billing_address;
     shipDOM.value = user.shipping_address;
 
+    const f3 = JSON.parse(localStorage.getItem('Obj_PHONE'));
+	phoneDOM.value = f3.phone;
+
 
     /*
 	const fn = JSON.parse(localStorage.getItem('Obj_firstNAME'));
@@ -86,6 +89,9 @@ edit3.addEventListener('click',(e)=>{
 
 /* Edit (or) Enter data and push inputs to localstorage */
 submit1.addEventListener('click', (e) => {
+
+    const user_phone = JSON.stringify({ phone: phoneDOM.value });
+	localStorage.setItem('Obj_PHONE', user_phone);
 
 
 
