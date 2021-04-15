@@ -9,10 +9,9 @@ $(function() {
         $('#mail').val(user.email);
         $('#phone').val(user.phone);
         
-        const dob = user.birth_date.split('/'); //date needs to be formatted "09/22/1994" mm-dd-yyyy.. yyyy-mm-dd
-        const myDate = `${dob[2]}-${dob[0]}-${dob[1]}`;
-        $('#age').val(myDate);
-        
+        //const dob = user.birth_date.split('/'); //date needs to be formatted "09/22/1994" mm-dd-yyyy.. yyyy-mm-dd
+        //const myDate = `${dob[2]}-${dob[0]}-${dob[1]}`;
+        $('#age').val(user.birth_date);
         $('#pwd').val(user.password);
         $('#bill').val(user.billing_address);
         $('#ship').val(user.shipping_address);
