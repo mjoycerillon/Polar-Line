@@ -1,47 +1,48 @@
 $(function() {
     var isLoggedOn = localStorage.getItem("isLoggedOn");
     var accounts = localStorage.getItem("accounts");
-    var userData = localStorage.getItem("current_user");
-    var user = JSON.parse(userData);
 
     // Call the Window On Load Function
     $(window).on('load', function () {
-        var guest_user = localStorage.getItem("guest_user");
-        var cart = JSON.parse(guest_user);
+        var cart = [];
         if (isLoggedOn == "true") {
-            cart = user["cart"];
+            var current_user = JSON.parse(localStorage.getItem("current_user"));
+            cart = current_user["cart"];
+        } else {
+            var guest_user = localStorage.getItem("guest_user");
+            if (guest_user != null){
+                cart = JSON.parse(guest_user);
+            }
         }
-        
         loadCart(cart);
 
         $('.cart-minus').on('click', function() {
             var currentQuantity = $(this).siblings('.cartItemQuantity').val();
             if (currentQuantity > 0) {
-                $(this).siblings('.cartItemQuantity').val(parseInt(currentQuantity) - 1);
-				var cartItemId = $(this).siblings('.cartItemQuantity').data("cart-id");
-                var cartItemSubtotal = $(this).siblings('.cartItemQuantity').data("sub-total-id");
-                updateItemSubtotal($(this), cartItemId, cartItemSubtotal);
+                var currentQuantity = $(this).parents('.cartItem').find('.cartItemQuantity').val();
+                if (currentQuantity > 0) {
+                    $(this).parents('.cartItem').find('.cartItemQuantity').val(parseInt(currentQuantity) - 1);
+                    updateItemSubtotal($(this));
+                }
             } 
         }); 
     
         $('.cart-add').on('click', function() {
-            var currentQuantity = $(this).siblings('.cartItemQuantity').val();
-            $(this).siblings('.cartItemQuantity').val(parseInt(currentQuantity) + 1);
-            var cartItemId = $(this).siblings('.cartItemQuantity').data("cart-id");
-            var cartItemSubtotal = $(this).siblings('.cartItemQuantity').data("sub-total-id");
-            updateItemSubtotal($(this), cartItemId, cartItemSubtotal);
+            var currentQuantity = $(this).parents('.cartItem').find('.cartItemQuantity').val();
+            $(this).parents('.cartItem').find('.cartItemQuantity').val(parseInt(currentQuantity) + 1);
+            updateItemSubtotal($(this));
         }); 
-    
-        function updateItemSubtotal(element, cartItemId, cartItemSubtotalId){
-            var itemPrice = $(element).parents().find('#'+cartItemId).text().substr(1);
-            var itemQuantity = $(element).siblings('.cartItemQuantity').val();
+
+        function updateItemSubtotal(element){
+            var itemPrice = $(element).parents('.cartItem').find('.cartItemPrice').text().substr(1);
+            var itemQuantity = $(element).parents('.cartItem').find('.cartItemQuantity').val();
             var subTotal = parseFloat(itemPrice) * parseFloat(itemQuantity);
             var currentSubTotal = parseFloat($(element).parents('.cartItem').find('.cartSubTotal').text().substr(1));
             var cartSubTotal = (parseFloat($('#txtCartSubTotal').text().substr(1)) - currentSubTotal) + subTotal;
-            $(element).parents().find('#'+cartItemSubtotalId).text('$'+ subTotal.toFixed(2));
+            $(element).parents('.cartItem').find('.cartSubTotal').text('$'+ subTotal.toFixed(2));
             $('#txtCartSubTotal').text("$"+cartSubTotal.toFixed(2));
-            $('#txtCartTotal').text("$"+cartSubTotal.toFixed(2))  
-
+            $('#txtCartTotal').text("$"+cartSubTotal.toFixed(2))
+            updateCart();
         }
 
         function emptyCart() {
@@ -57,12 +58,46 @@ $(function() {
                     '</div>' +
                 '</div>'
                 $("#cartContainer").append(card);
-            
+        }
+
+        function updateCart() {
+            var currentUser = JSON.parse(localStorage.getItem("current_user"));
+            currentUser["cart"] = [];
+
+            $('.cartItem').each(function() {
+                currentUser["cart"].push({
+                    "product": $(this).find('.cartItemName').text(),
+                    "quantity": $(this).find('.cartItemQuantity').val(),
+                    "price": $(this).find('.cartItemPrice').text().substr(1),
+                    "imageLocation":  $(this).find('.cartItemImage').attr("src")
+                });
+            });
+            var updateCurrentUser = JSON.stringify(currentUser);
+            localStorage.setItem("current_user", updateCurrentUser);
+
+            // Retrieve the data from the local storage and parse it
+            var loginData = localStorage.getItem("accounts");
+            var objectData = JSON.parse(loginData);
+            var emailFound = false;
+    
+            // Find the account and save it into global variable account
+            for (i = 0; i < objectData.length; i++) {
+                var tempAccount = objectData[i]
+                console.log(tempAccount)
+                if (tempAccount["email"] == currentUser["email"]) {
+                    emailFound = true;
+                    objectData.splice(i, 1);
+                    break;
+                }
+            }
+            objectData.push(currentUser);
+            localStorage.setItem("accounts",JSON.stringify(objectData));
+
         }
 
         function loadCart(cart) {
             var cartSubTotal = 0.0;
-            if (cart != null) {
+            if (cart.length > 0) {
                 for (i = 0; i < cart.length; i++) {
                     var productName = "";
                     var productPrice = "";
@@ -95,12 +130,12 @@ $(function() {
                                           '<button type="button" class="btn-close removeItem" aria-label="Close"></button>' +
                                       '</div>' +
                                       '<div class="row">' +
-                                          '<div class="col"><img src="'+ productImage +'" class="img-fluid img-thumbnail"></div>' +
-                                          '<div class="col align-items-center text-center fw-bolder">'+ productName +'</div>' +
+                                          '<div class="col"><img src="'+ productImage +'" class="img-fluid img-thumbnail cartItemImage"></div>' +
+                                          '<div class="col align-items-center text-center fw-bolder cartItemName">'+ productName +'</div>' +
                                           '<div class="col align-items-center">' +
                                               '<div class="container">' +
                                                   '<div class="row justify-content-center">Price</div>' +
-                                                  '<div id="cartItemPrice' + i + '" class="row justify-content-center text-danger fw-bolder">$'+ productPrice +'</div>' +
+                                                  '<div class="row justify-content-center text-danger fw-bolder cartItemPrice">$'+ productPrice +'</div>' +
                                               '</div>' +
                                           '</div>' +
                                           '<div class="col align-items-center">' +
@@ -109,7 +144,7 @@ $(function() {
                                                   '<div class="row justify-content-center">' +
                                                       '<div class="input-group justify-content-center text-center">' +
                                                           '<button class="cart-minus input-group-text">-</button>' +
-                                                          '<input class="form-control cartItemQuantity" type="number" data-cart-id="cartItemPrice'+ i +'" data-sub-total-id="cartItemSubtotal' + i +'" value="'+ productQuantity +'">' +
+                                                          '<input class="form-control cartItemQuantity" type="number" value="'+ productQuantity +'">' +
                                                           '<button class="cart-add input-group-text">+</button>' +
                                                       '</div>' +
                                                   '</div>' +
@@ -118,7 +153,7 @@ $(function() {
                                           '<div class="col align-items-center">' +
                                               '<div class="container">' +
                                                   '<div class="row justify-content-center">Total</div>' +
-                                                  '<div id="cartItemSubtotal' + i + '" class="cartSubTotal row justify-content-center text-danger fw-bolder">$'+ cartItemSubTotal +'</div>' +
+                                                  '<div class="cartSubTotal row justify-content-center text-danger fw-bolder">$'+ cartItemSubTotal.toFixed(2) +'</div>' +
                                               '</div>' +
                                           '</div>' +
                                       '</div>' +
@@ -136,18 +171,13 @@ $(function() {
         }
 
         $('.removeItem').on('click', function() {
-            var element = $(this).parents('.cartItem');
             var price = $(this).parent().next().find('.cartSubTotal').text().substr(1);
             var cartSubTotal = parseFloat($('#txtCartSubTotal').text().substr(1)) - parseFloat(price);
             $('#txtCartSubTotal').text("$"+cartSubTotal.toFixed(2));
             $('#txtCartTotal').text("$"+cartSubTotal.toFixed(2))  
-
-            element.animate({opacity: '0'}, 150, function(){
-                element.animate({height: '0px'}, 150, function(){
-                    element.remove();
-                });
-            });
-
+            $(this).parents('.cartItem').animate({opacity: '0'}, 150).animate({height: '0px'});
+            $(this).parents('.cartItem').remove();
+            updateCart();
             if (cartSubTotal == 0.0) {
                 emptyCart();
             }
