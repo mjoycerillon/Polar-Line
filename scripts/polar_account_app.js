@@ -1,95 +1,118 @@
 /* Creating DOM Variables */
-const usernameDOM = document.getElementById('username');
+const fnameDOM = document.getElementById('fname');
+const lnameDOM = document.getElementById('lname');
 const mailDOM = document.getElementById('mail');
 const phoneDOM = document.getElementById('phone');
 const ageDOM = document.getElementById('age');
-const passwordDOM = document.getElementById('password');
-const billingDOM = document.getElementById('billing');
-const shippingDOM = document.getElementById('shipping');
+const pwdDOM = document.getElementById('pwd');
+const billDOM = document.getElementById('bill');
+const shipDOM = document.getElementById('ship');
 
 
 
 /* Page onload previous data from localstorage */
 window.addEventListener('load', () => {
-	const f1 = JSON.parse(localStorage.getItem('DATA_NAME'));
-	usernameDOM.value = f1.username;
-    const f2 = JSON.parse(localStorage.getItem('DATA_MAIL'));
+	const fn = JSON.parse(localStorage.getItem('Obj_firstNAME'));
+	fnameDOM.value = fn.fname;
+
+    const ln = JSON.parse(localStorage.getItem('Obj_lastNAME'));
+	lnameDOM.value = ln.lname;
+
+    const f2 = JSON.parse(localStorage.getItem('Obj_MAIL'));
 	mailDOM.value = f2.mail;
-    const f3 = JSON.parse(localStorage.getItem('DATA_PHONE'));
+
+    const f3 = JSON.parse(localStorage.getItem('Obj_PHONE'));
 	phoneDOM.value = f3.phone;
-    const f4 = JSON.parse(localStorage.getItem('DATA_AGE'));
+
+    const f4 = JSON.parse(localStorage.getItem('Obj_AGE'));
 	ageDOM.value = f4.age;
-    const f5 = JSON.parse(localStorage.getItem('DATA_PASSWORD'));
-	passwordDOM.value = f5.password;
-    const f6 = JSON.parse(localStorage.getItem('DATA_BILLING'));
-	billingDOM.value = f6.billing;
-    const f7 = JSON.parse(localStorage.getItem('DATA_SHIPPING'));
-	shippingDOM.value = f7.shipping;
+
+    const f5 = JSON.parse(localStorage.getItem('Obj_PASSWORD'));
+	pwdDOM.value = f5.pwd;
+
+    const f6 = JSON.parse(localStorage.getItem('Obj_BILLING'));
+	billDOM.value = f6.bill;
+
+    const f7 = JSON.parse(localStorage.getItem('Obj_SHIPPING'));
+	shipDOM.value = f7.ship;
+
+    
     
 });
 
 /* Enable feilds, submit button in personal details */
 edit1.addEventListener('click', (e) => {
-	usernameDOM.disabled = false;
+	fnameDOM.disabled = false;
+    lnameDOM.disabled = false;
     mailDOM.disabled = false;
     phoneDOM.disabled = false;
     ageDOM.disabled = false;
-    passwordDOM.disabled = false;
+    pwdDOM.disabled = false;
     submit1.style.display = 'inline-block';
 });
 
 /* Enable feild, submit button at Billing address */
 edit2.addEventListener('click',(e)=>{
-    billingDOM.disabled = false;
+    billDOM.disabled = false;
     submit2.style.display = 'inline-block';
 
 });
 
 /* Enable feild, submit button at shipping address */
 edit3.addEventListener('click',(e)=>{
-    shippingDOM.disabled = false;
+    shipDOM.disabled = false;
     submit3.style.display = 'inline-block';
 
 });
 
-/* Edit/Enter data and push inputs to localstorage*/
+/* Edit (or) Enter data and push inputs to localstorage */
 submit1.addEventListener('click', (e) => {
-	const user_name = JSON.stringify({ username: usernameDOM.value });
-	localStorage.setItem('DATA_NAME', user_name);
-    const user_mail = JSON.stringify({ mail: mailDOM.value });
-	localStorage.setItem('DATA_MAIL', user_mail);
-    const user_phone = JSON.stringify({ phone: phoneDOM.value });
-	localStorage.setItem('DATA_PHONE', user_phone);
-    const user_age = JSON.stringify({ age: ageDOM.value });
-	localStorage.setItem('DATA_AGE', user_age);
-    const user_password = JSON.stringify({ password: passwordDOM.value });
-	localStorage.setItem('DATA_PASSWORD', user_password);
+	const first_name = JSON.stringify({ fname: fnameDOM.value });
+	localStorage.setItem('Obj_firstNAME', first_name);
 
-    usernameDOM.disabled = true;
+    const last_name = JSON.stringify({ lname: lnameDOM.value });
+	localStorage.setItem('Obj_lastNAME', last_name);
+
+    const user_mail = JSON.stringify({ mail: mailDOM.value });
+	localStorage.setItem('Obj_MAIL', user_mail);
+
+    const user_phone = JSON.stringify({ phone: phoneDOM.value });
+	localStorage.setItem('Obj_PHONE', user_phone);
+
+    const user_age = JSON.stringify({ age: ageDOM.value });
+	localStorage.setItem('Obj_AGE', user_age);
+
+    const user_password = JSON.stringify({ pwd: pwdDOM.value });
+	localStorage.setItem('Obj_PASSWORD', user_password);
+
+    
+
+    fnameDOM.disabled = true;
+    lnameDOM.disabled = true;
     mailDOM.disabled = true;
     phoneDOM.disabled = true;
     ageDOM.disabled = true;
-    passwordDOM.disabled = true;
+    pwdDOM.disabled = true;
     
      
 });
 
 submit2.addEventListener('click', (e) => {
-	const billing_name = JSON.stringify({ billing: billingDOM.value });
-	localStorage.setItem('DATA_BILLING', billing_name);
-    billingDOM.disabled = true;
+	const billing_name = JSON.stringify({ bill: billDOM.value });
+	localStorage.setItem('Obj_BILLING', billing_name);
+    billDOM.disabled = true;
 });
 
 submit3.addEventListener('click', (e) => {
-	const shipping_name = JSON.stringify({ shipping: shippingDOM.value });
-	localStorage.setItem('DATA_SHIPPING', shipping_name);
-    shippingDOM.disabled = true;
+	const shipping_name = JSON.stringify({ ship: shipDOM.value });
+	localStorage.setItem('Obj_SHIPPING', shipping_name);
+    shipDOM.disabled = true;
 });
 
 
 /* Password visibility function */
 function myFunction(){
-    var x = document.getElementById("password");
+    var x = document.getElementById("pwd");
     if (x.type === "password") {
       x.type = "text";
     } else {

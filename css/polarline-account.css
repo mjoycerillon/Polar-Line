@@ -83,47 +83,17 @@ nav{
     color:black;
     margin-left: 20px;
 }
-#billing{
+#bill{
     color:black;
     margin-left: 20px;
     margin-bottom: 35px;
 }
-#shipping{
+#ship{
     color:black;
     margin-left: 20px;
     margin-bottom: 35px;
 }
 
-.editbutton{
-        color: white;
-        background: black;
-        display: inline-block;
-        position: absolute;
-        box-sizing: content-box;
-        font-size: 20px;
-        margin-left:900px;
-        margin-top: 2%;
-        
-}
-
-.editbutton:hover{
-    background-color:teal;
-    color: white;
-}
-
-.addressbutton{
-    margin-left: 20px;
-    margin-bottom: 20px;
-    box-sizing: content-box;
-    color: white;
-    background: black;
-    font-size: 16px;
-}
-
-.addressbutton:hover{
-    background-color:teal;
-    color: white;
-}
 
 .user{
     color:black;

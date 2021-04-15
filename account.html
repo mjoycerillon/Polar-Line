@@ -94,16 +94,18 @@
 				<h2>Personal details</h2>	
 			</div><br><br>
 			<button id="edit1">edit</button>
-			<label>Name  </label>
-			<input type="text" id="username" disabled /><br>
-			<label>Email  </label>
+			<label>First Name  </label>
+			<input type="text" id="fname" disabled /><br>
+			<label>Last Name  </label>
+			<input type="text" id="lname" disabled /><br>
+			<label>Email ID : </label>
 			<input type="email" id="mail" disabled /><br>
-			<label>Phone  </label>
+			<label>Phone No.: </label>
 			<input type="tel" id="phone" disabled /><br>
-			<label>D.o.B:  </label>
+			<label>Birth Date:  </label>
 			<input type="date" id="age" disabled><br>	
 			<label>Password</label>
-			<input type="password" value="" id="password" disabled>
+			<input type="password" value="" id="pwd" disabled>
 			<input type="checkbox" id="check" onclick="myFunction()"><br>
 			<button id="submit1" style="display: none">submit</button><br>
 
@@ -112,26 +114,28 @@
 				<h2>Billing/Shipping Address</h2></div>	<br>
 			
 				<button id="edit2">edit</button><br>
-				<h3> BILLING ADDRESS </h3>
-				<textarea id="billing" rows="4" cols="25" disabled></textarea><br>
+				<h4> BILLING ADDRESS </h4>
+				<textarea id="bill" rows="4" cols="36" disabled></textarea><br>
 				<button id="submit2" style="display: none">submit</button>
 
 				<br>
 				<button id="edit3">edit</button><br>
-				<h3> SHIPPING ADDRESS </h3>
-				<textarea id="shipping" rows="4" cols="25" disabled></textarea><br>
+				<h4> SHIPPING ADDRESS </h4>
+				<textarea id="ship" rows="4" cols="36" disabled></textarea><br>
 				<button id="submit3" style="display: none">submit</button><br>
 			</div>
 		
 
 		<style>
-			#edit1, #edit2, #edit3{float: right; margin-right: 900px; margin-top: 8px;}
-			button{color: white; background-color: black; display: inline-block; font-size: 18px;}
+			#edit1, #edit2, #edit3{float: right; margin-right: 800px; margin-top: 8px;}
+			button{color: white; background-color: black; display: inline-block; font-size: 18px; margin-bottom: 10px;}
 			button:hover{background-color:teal; color: white;}
 			button:active {box-shadow: 0 5px #666; transform: translateY(0.1px);}
 			#heading{
 					color:white;
 					background-color: black; 
+                    margin-top: 20px;
+                    margin-bottom: 20px;
 					display: inline-block;
 					text-align-last: center;
 					box-sizing: border-box;
