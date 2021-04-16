@@ -144,7 +144,13 @@ $(function() {
     /**
      * Register Button
      */
-        $('#registerForm').on('submit', function(event) {
+    $('#registerForm').on('submit', function(event) {
+        $('#exampleModal').modal('show');
+        event.preventDefault();
+
+    });
+
+    $('#exampleModal').on('hidden.bs.modal', function () {
         accounts=localStorage.getItem("accounts");
         var accountsObj=JSON.parse(accounts);
         accountsObj=JSON.parse(accounts);
@@ -163,16 +169,7 @@ $(function() {
         );
         
         accounts=JSON.stringify(accountsObj);
-        localStorage.setItem("accounts",accounts); 
-        $('#ModalCenter').modal('show')
-       /* Swal.fire({
-            icon: 'success',
-            title: 'you have successfully registered',
-            text: 'Welcome to polarline!',
-            
-        })  */
-                
-
+        localStorage.setItem("accounts",accounts);       
     });
     
 });
