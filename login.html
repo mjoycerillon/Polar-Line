@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- This webpage is created by: Anugna Patibandla(C0791762)-->
+<!-- This webpage is created by: Mary Joyce Rilon (C0787035)|Anugna Patibandla(C0791762)-->
 <html lang="en">
 
 <head>
@@ -19,8 +19,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
         crossorigin="anonymous"></script>
-    <script src="./scripts/polarline.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+    <script src="./scripts/polarline.js"></script>
 </head>
 
 <body>
@@ -103,15 +103,21 @@
             <div class="col">
                 <div class="login-col">
                     <h4>LOGIN</h4>
-                    <form id="loginForm" action="index.html">
+                    <form id="loginForm" action="index.html" novalidate>
                         <div class="form-group p-2">
                             <label for="txtLoginEmail" class="form-label">Email</label>
-                            <input type="email" class="inp form-control" id="txtLoginEmail" required>
+                            <input type="email" class="inp form-control" id="txtLoginEmail">
+                            <div id="invalidEmail" class="invalid-feedback">
+                                Please provide a valid email.
+                            </div>
                         </div>
                         <div class="form-group p-2">
                             <label for="txtLoginPassword" class="form-label">Password</label>
                             <input type="password" class="inp form-control" id="txtLoginPassword"
-                                name="txtLoginPassword" required>
+                                name="txtLoginPassword">
+                            <div id="invalidPassword" class="invalid-feedback">
+                                Please provide a password.
+                            </div>
                             <p class="form-text">
                                 <a href="#" class="form-link">
                                     <span style="font-size:13px">Forgot your password? </span>
@@ -128,7 +134,7 @@
             <div class="col">
                 <div class="login-col">
                     <h4>REGISTER</h4>
-                    <form id="registerForm" action="index.html">
+                    <form id="registerForm" action="index.html" novalidate>
                         <div class="form-group p-2">
                             <label for="txtRegisterFirstName" class="form-label">First Name</label>
                             <input type="text" class="inp form-control" id="txtRegisterFirstName"
@@ -151,26 +157,7 @@
                         </div>
                         <div class="p-2">
                             <input type="submit" class="btn-black btn btn-dark" id="btnRegisterSubmit"
-                                value="Create" data-bs-toggle="modal" data-bs-target="#exampleModal"></input>
-                        </div>
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Welcome to PolarLine!</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>You have successfully registered!</p> 
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                            </div>
+                                value="Create"></input>
                         </div>
                     </form>
                 </div>

@@ -76,7 +76,7 @@ $(function() {
     $(document).on('click', '#navSignOutLink', function() {
         localStorage.setItem("isLoggedOn", "false");
         localStorage.removeItem("current_user");
-        $('#navSignOutLink').remove(); // when referencing by id
+        $('#navSignOutLink').remove(); 
     }); 
 
 
@@ -98,6 +98,38 @@ $(function() {
         return emailFound;
     }
 
+    function isValidEmail($email) {
+        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+        return emailReg.test( $email );
+    }
+
+    function isBlank($field) {
+        if ($field == "") {
+            return true;
+        }
+        return false;
+    }
+
+    function clearWarning($textField) {
+        $textField.removeClass('is-invalid');
+        $textField.next().css('display', 'none');
+        $('.alert').remove();
+    }
+
+    function invalidField(event, $form, $textField, message) {
+        if (message != "") {
+            var invalid = 
+            '<div class="alert alert-danger" role="alert">' + message + '</div>';
+            $form.prepend(invalid);
+            $form.trigger("reset");
+        } else {
+            $textField.addClass('is-invalid');
+            $textField.next().css('display', 'block');
+        }
+        $textField.focus();
+        event.preventDefault();
+    }
+
     /**
      * Login
      */
@@ -107,36 +139,39 @@ $(function() {
         // Get value of Login Email and Password
         var loginEmail = $('#txtLoginEmail').val();
         var loginPassword = $('#txtLoginPassword').val();
-
-        accountFound = retrieveAccount(loginEmail);
-
-        // Validate if the email match on the current data
-        if (accountFound == false) {
-            var alert = 
-            '<div class="alert alert-danger" role="alert">' +
-                'The email or password you entered is incorrect. Please try again.' +
-            '</div>';
-            $("#loginForm").prepend(alert);
-            $("#loginForm").trigger("reset");
-            $('#txtLoginEmail').focus();
-            event.preventDefault();
-
+        
+        clearWarning($("#txtLoginEmail"));
+        if (isBlank(loginEmail)) {
+            invalidField(event, $("#loginForm"), $("#txtLoginEmail"), '');
         } else {
-            userData = localStorage.getItem("current_user");
-            user = JSON.parse(userData);
-
-            // Validate if password match the login email
-            if (user["password"] != loginPassword) {
-                alert("Incorrect email or password.");
-                console.log("Incorrect email or password.")
-                $("#loginForm").trigger("reset");
-                $('#txtLoginEmail').focus();
-                localStorage.removeItem("current_user");
-                event.preventDefault();
-
+            clearWarning($("#txtLoginEmail"));
+            if (!isValidEmail(loginEmail)) {
+                invalidField(event, $("#loginForm"), $("#txtLoginEmail"), '');
             } else {
-                // Set the global variable isLoggedOn to true and redirect to Account Page            
-                localStorage.setItem("isLoggedOn", true);
+                clearWarning($("#txtLoginEmail"));
+                if (isBlank(loginPassword)) {
+                    invalidField(event, $("#loginForm"), $("#txtLoginPassword"), '');
+                } else {
+                    clearWarning($("#txtLoginPassword"));
+                    if (!retrieveAccount(loginEmail)) {
+                        invalidField(event, $("#loginForm"), $("#txtLoginEmail"), 
+                        'The email you entered was not registered. Please try again.');
+                    } else {
+                        userData = localStorage.getItem("current_user");
+                        user = JSON.parse(userData);
+            
+                        // Validate if password match the login email
+                        if (user["password"] != loginPassword) {
+                            invalidField(event, $("#loginForm"), $("#txtLoginEmail"),
+                             'The email or password you entered is incorrect. Please try again.');
+                            localStorage.removeItem("current_user");
+                        } else {
+                            // Set the global variable isLoggedOn to true and redirect to Account Page            
+                            localStorage.setItem("isLoggedOn", true);
+                            $("#loginForm").submit();
+                        }
+                    }
+                }
             }
         }
     });
@@ -145,12 +180,6 @@ $(function() {
      * Register Button
      */
     $('#registerForm').on('submit', function(event) {
-        $('#exampleModal').modal('show');
-        event.preventDefault();
-
-    });
-
-    $('#exampleModal').on('hidden.bs.modal', function () {
         accounts=localStorage.getItem("accounts");
         var accountsObj=JSON.parse(accounts);
         accountsObj=JSON.parse(accounts);
@@ -169,7 +198,6 @@ $(function() {
         );
         
         accounts=JSON.stringify(accountsObj);
-        localStorage.setItem("accounts",accounts);       
+        localStorage.setItem("accounts",accounts);
     });
-    
 });
