@@ -139,7 +139,7 @@ $(function() {
         // Get value of Login Email and Password
         var loginEmail = $('#txtLoginEmail').val();
         var loginPassword = $('#txtLoginPassword').val();
-        
+              
         clearWarning($("#txtLoginEmail"));
         if (isBlank(loginEmail)) {
             invalidField(event, $("#loginForm"), $("#txtLoginEmail"), '');
@@ -180,6 +180,36 @@ $(function() {
      * Register Button
      */
     $('#registerForm').on('submit', function(event) {
+
+        if($('#txtRegisterFirstName').val()==''){
+            var firstNameInvalid=
+            '<div class="alert alert-danger" role="alert">'+
+               'First Name should not be blank' +
+            '</div>';
+            $('#RegisterForm').prepend(firstNameInvalid);
+            $('#txtRegisterFirstName').focus();
+            event.preventDefault();
+        }
+
+        if($('#txtRegisterLastName').val()==''){
+            var lastNameInvalid=
+            '<div class="alert alert-danger" role="alert">'+
+               'Last Name should not be blank' +
+            '</div>';
+            $('#RegisterForm').prepend(lastNameInvalid);
+            $('#txtRegisterLastName').focus();
+            event.preventDefault();
+        }
+
+        if($('#txtRegisterPassword').val()==''){
+            var PasswordInvalid=
+            '<div class="alert alert-danger" role="alert">'+
+               'password should not be blank' +
+            '</div>';
+            $('#RegisterForm').prepend(PasswordInvalid);
+            $('#txtRegisterPassword').focus();
+            event.preventDefault();
+        }
         accounts=localStorage.getItem("accounts");
         var accountsObj=JSON.parse(accounts);
         accountsObj=JSON.parse(accounts);
@@ -196,6 +226,36 @@ $(function() {
                 "cart": []
             }
         );
+        clearWarning($("#txtRegisterEmail"));
+        if (isBlank(registerEmail)) 
+        {
+            invalidField(event, $("#registerForm"), $("#txtRegisterEmail"), '');
+        } else 
+        {
+            clearWarning($("#txtRegisterEmail"));
+            if (!isValidEmail(registerEmail)) 
+            {
+                invalidField(event, $("#registerForm"), $("#txtRegisterEmail"), '');
+            } else 
+            {
+                clearWarning($("#txtRegisterEmail"));
+                if (isBlank(registerEmail)) 
+                {
+                    invalidField(event, $("#registerForm"), $("#txtLoginPassword"), '');
+                } else 
+                {
+                    clearWarning($("#txtLoginPassword"));
+                    if (!retrieveAccount(loginEmail)) {
+                        invalidField(event, $("#registerEmail"), $("#txtRegisterEmail"), 
+                        'The email you entered was not registered. Please try again.');
+                    } else 
+                    {
+                        userData = localStorage.getItem("current_user");
+                        user = JSON.parse(userData);
+                    }
+                }
+            }
+        }
         
         accounts=JSON.stringify(accountsObj);
         localStorage.setItem("accounts",accounts);
