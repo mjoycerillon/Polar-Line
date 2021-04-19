@@ -40,16 +40,16 @@
 	transition: all .3s ease-in-out;
 }
 
+.cart-container {
+    display: block;
+}
+
 .burger{
     display: block;
 }
 
 .polarline-logo {
     width: 90%;
-}
-
-.burger-container {
-    width: 10%;
 }
 
 .filler {
@@ -79,7 +79,7 @@
 }
 
 .nav-links li{
-    padding: 2em;
+    padding: 3em;
     
 }
 
@@ -145,7 +145,7 @@ footer {
     height: 30px;
     margin-bottom: 1em;
     outline: none;
-    width: 200px;
+    width: 150px;
     padding-left: 10px;
     font-size: medium;
 }
@@ -173,9 +173,6 @@ footer {
 .new-to-polar{
     padding: 0 0.5em !important;
 }
-
-
-
 
 /* Style for the main */
 /* Media query for Tablet layout */
@@ -218,16 +215,16 @@ footer {
         display: none;
     }
 
+    .cart-container {
+        display: none;
+    }
+
     .navAccountLinkMob {
         display: none;
     }
 
     .polarline-logo {
         width: 100%;
-    }
-
-    .burger-container {
-        width: 0%;
     }
 
     .filler {
@@ -370,6 +367,8 @@ footer {
         height: 45px;
         width: 200px;
     }
+
+
     
 }
 
