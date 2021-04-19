@@ -190,83 +190,49 @@ $(function() {
      */
     $('#registerForm').on('submit', function(event) {
 
-        if($('#txtRegisterFirstName').val()==''){
-            var firstNameInvalid=
-            '<div class="alert alert-danger" role="alert">'+
-               'First Name should not be blank' +
-            '</div>';
-            $('#RegisterForm').prepend(firstNameInvalid);
-            $('#txtRegisterFirstName').focus();
-            event.preventDefault();
-        }
-
-        if($('#txtRegisterLastName').val()==''){
-            var lastNameInvalid=
-            '<div class="alert alert-danger" role="alert">'+
-               'Last Name should not be blank' +
-            '</div>';
-            $('#RegisterForm').prepend(lastNameInvalid);
-            $('#txtRegisterLastName').focus();
-            event.preventDefault();
-        }
-
-        if($('#txtRegisterPassword').val()==''){
-            var PasswordInvalid=
-            '<div class="alert alert-danger" role="alert">'+
-               'password should not be blank' +
-            '</div>';
-            $('#RegisterForm').prepend(PasswordInvalid);
-            $('#txtRegisterPassword').focus();
-            event.preventDefault();
-        }
-        accounts=localStorage.getItem("accounts");
-        var accountsObj=JSON.parse(accounts);
-        accountsObj=JSON.parse(accounts);
-        accountsObj.push(
-            {
-                "first_name": $('#txtRegisterFirstName').val(),
-                "last_name": $('#txtRegisterLastName').val(),
-                "email": $('#txtRegisterEmail').val(),
-                "password": $('#txtRegisterPassword').val(),
-                "phone":"",
-                "billing_address": "",
-                "shipping_address": "",
-                "birth_date": "",
-                "cart": []
-            }
-        );
-        clearWarning($("#txtRegisterEmail"));
-        if (isBlank(registerEmail)) 
-        {
-            invalidField(event, $("#registerForm"), $("#txtRegisterEmail"), '');
-        } else 
-        {
-            clearWarning($("#txtRegisterEmail"));
-            if (!isValidEmail(registerEmail)) 
-            {
-                invalidField(event, $("#registerForm"), $("#txtRegisterEmail"), '');
-            } else 
-            {
-                clearWarning($("#txtRegisterEmail"));
-                if (isBlank(registerEmail)) 
-                {
-                    invalidField(event, $("#registerForm"), $("#txtLoginPassword"), '');
-                } else 
-                {
-                    clearWarning($("#txtLoginPassword"));
-                    if (!retrieveAccount(loginEmail)) {
-                        invalidField(event, $("#registerEmail"), $("#txtRegisterEmail"), 
-                        'The email you entered was not registered. Please try again.');
-                    } else 
-                    {
-                        userData = localStorage.getItem("current_user");
-                        user = JSON.parse(userData);
+        clearWarning($("#txtRegisterFirstName"));
+        if(isBlank($('#txtRegisterFirstName').val())){
+            invalidField(event, $("#registerForm"), $("#txtRegisterFirstName"), '');
+        } else {
+            clearWarning($("#txtRegisterFirstName"));
+            if(isBlank($('#txtRegisterLastName').val())){
+                invalidField(event, $("#registerForm"), $("#txtRegisterLastName"), '');
+            } else {
+                clearWarning($("#txtRegisterLastName"));
+                if(isBlank($("#txtRegisterEmail").val())){
+                    invalidField(event, $("#registerForm"), $("#txtRegisterEmail"), '');
+                } else {
+                    clearWarning($("#txtRegisterEmail"));
+                    if (!isValidEmail($("#txtRegisterEmail").val())) {
+                        invalidField(event, $("#loginForm"), $("#txtRegisterEmail"), '');
+                    } else {
+                        clearWarning($("#txtRegisterEmail"));
+                        if (isBlank($("#txtRegisterPassword").val())) {
+                            invalidField(event, $("#loginForm"), $("#txtRegisterPassword"), '');
+                        } else {
+                            var accounts=localStorage.getItem("accounts");
+                            var accountsObj=JSON.parse(accounts);
+                            accountsObj=JSON.parse(accounts);
+                            accountsObj.push(
+                                {
+                                    "first_name": $('#txtRegisterFirstName').val(),
+                                    "last_name": $('#txtRegisterLastName').val(),
+                                    "email": $('#txtRegisterEmail').val(),
+                                    "password": $('#txtRegisterPassword').val(),
+                                    "phone":"",
+                                    "billing_address": "",
+                                    "shipping_address": "",
+                                    "birth_date": "",
+                                    "cart": []
+                                }
+                            );
+                            accounts=JSON.stringify(accountsObj);
+                            localStorage.setItem("accounts", accounts);
+                            return true;
+                        }
                     }
                 }
             }
         }
-        
-        accounts=JSON.stringify(accountsObj);
-        localStorage.setItem("accounts",accounts);
     });
 });

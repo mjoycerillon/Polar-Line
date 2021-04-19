@@ -139,21 +139,33 @@
                             <label for="txtRegisterFirstName" class="form-label">First Name</label>
                             <input type="text" class="inp form-control" id="txtRegisterFirstName"
                                 name="txtRegisterFirstName" required>
+                            <div id="invalidFirstName" class="invalid-feedback">
+                                Please provide your first name.
+                            </div>
                         </div>
                         <div class="form-group p-2">
                             <label for="txtRegisterLastName" class="form-label">Last Name</label>
                             <input type="text" class="inp form-control" id="txtRegisterLastName"
                                 name="txtRegisterLastName" required>
+                            <div id="invalidLastName" class="invalid-feedback">
+                                Please provide your last name.
+                            </div>
                         </div>
                         <div class="form-group p-2">
                             <label for="txtRegisterEmail" class="form-label">Email</label>
                             <input type="txtRegisterEmail" class="inp form-control" id="txtRegisterEmail"
                                 name="txtRegisterEmail" required>
+                            <div id="invalidRegisterEmail" class="invalid-feedback">
+                                Please provide a valid email.
+                            </div>
                         </div>
                         <div class="form-group p-2">
                             <label for="txtRegisterPassword" class="form-label">Password</label><br>
                             <input type="password" class="inp form-control" id="txtRegisterPassword"
                                 name="txtRegisterPassword" required>
+                            <div id="invalidRegisterPassword" class="invalid-feedback">
+                                Please provide password.
+                            </div>
                         </div>
                         <div class="p-2">
                             <input type="submit" class="btn-black btn btn-dark" id="btnRegisterSubmit"
@@ -205,5 +217,4 @@
         </div>
     </footer>
 </body>
-
 </html>
