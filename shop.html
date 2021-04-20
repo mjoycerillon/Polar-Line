@@ -225,7 +225,10 @@
         </div>
         <!--  Internal Scripting -->
         <script>
+            //Initializing Animate-On-Scroll Plugin
             AOS.init();
+
+            //Shop-To-Details Redirection
 
             $('.shop-product').click(function(){
                 var imgLoc = $(this).children('img').attr('src');
@@ -243,6 +246,9 @@
                 var fromShopPage = true;
                 localStorage.setItem("fromShopPage",fromShopPage);
             });
+
+
+            //Overlay -Add-To-Bag Button Functionality
 
             $('.overlayButton').click(function(e){
             e.stopPropagation();

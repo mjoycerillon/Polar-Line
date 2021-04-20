@@ -187,6 +187,8 @@
 
     <!--  Internal Script -->
     <script>
+        //Loading from Shop Page
+
         $(window).on('load', function () {
             var fromShopPage = localStorage.getItem("fromShopPage");
             if(fromShopPage=="true")
@@ -207,9 +209,15 @@
                 $('.product-gallery-column2').children('img').attr('src',imgLoc);
             }
         });
+
+        //Like Button Animation
+
         document.querySelector('.like-button').addEventListener('click', (e) => {
         e.currentTarget.classList.toggle('liked');
         });
+
+
+        ////Gallery Swap
 
         $('#imgDetailsGalleryCol1Image2').click(function(){
             $(this).children('img').fadeOut(0);
@@ -220,9 +228,8 @@
             $('.product-gallery-column2').children('img').attr('src',x);
             $('.product-gallery-column2').children('img').fadeIn(1500);
             $(this).children('img').fadeIn(1500);
-            
-            
         });
+
 
         $('#imgDetailsGalleryCol1Image1').click(function(){
             $(this).children('img').fadeOut(0);
@@ -235,6 +242,7 @@
             $(this).children('img').fadeIn(1500);
         });
 
+
         $('#imgDetailsGalleryCol1Image3').click(function(){
             $(this).children('img').fadeOut(0);
             $('.product-gallery-column2').children('img').fadeOut(0);
@@ -246,12 +254,17 @@
             $(this).children('img').fadeIn(1500);
         });
 
+        //Size Selector Div Features
+
         $('.sizeSel').click(function(){
             $(this).css('color','black');
             $(this).css('border','2px solid black');
             $(this).siblings().css('color','gray');
             $(this).siblings().css('border','1px solid gray');
         });
+        
+
+        //Add To Bag Feature
 
         $('#btnDetailsAddToBag').click(function(){
 
@@ -291,6 +304,7 @@
             localStorage.setItem("accounts",accounts);
             }
             else{
+                //Guest User
                 var guestObj = localStorage.getItem("guest_user");
                 if (guestObj == null) {
                     guestObj = [];
