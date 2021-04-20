@@ -110,3 +110,98 @@
    opacity: 1;
    z-index: 1;
 }
+
+@media only screen and (max-width: 1024px) {
+    .shop-banner img{
+        height: auto;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .banner-text{
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-weight: 900;
+        font-size: 40px;
+    }
+
+    .shop-product{
+        width: 30%;
+    }
+    .overlayButton{
+        opacity: 0;
+        z-index: -1;
+        position: absolute;
+        left : 85px;
+        top : 300px;
+        transition: 0.4s ease-in-out;
+        background-color: transparent;
+        text-shadow: 3px 3px 5px #000000;
+        box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+        color: white;
+        border: 2px solid white;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        display: none;
+     
+     }
+     .shop-product:hover img{
+        filter:drop-shadow(8px 8px 10px gray);
+     }
+}
+
+@media only screen and (max-width: 400px) {
+    .shop-banner img{
+        height: auto;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .banner-text{
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-weight: 900;
+        font-size: 30px;
+    }
+
+   .shop-filters{
+       display: none;
+   }
+
+   .shop-product{
+       width: 48%;
+   }
+
+   .overlayButton{
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+    left : 85px;
+    top : 300px;
+    transition: 0.4s ease-in-out;
+    background-color: transparent;
+    text-shadow: 3px 3px 5px #000000;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+    color: white;
+    border: 2px solid white;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: none;
+ 
+ }
+ .shop-product:hover img{
+    filter:drop-shadow(8px 8px 10px gray);
+ }
+}
