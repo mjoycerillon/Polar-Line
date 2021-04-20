@@ -139,7 +139,7 @@ $(function() {
             $form.prepend(invalid);
             $form.trigger("reset");
         } else {
-            $textField.addClass('is-invalid');
+            $textField.addClass('is-invalid').css('padding-right', '0.9em');
             $textField.next().css('display', 'block');
         }
         $textField.focus();
