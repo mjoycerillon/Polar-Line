@@ -123,7 +123,7 @@ $(function() {
                     cartItemSubTotal = productPrice * productQuantity;
                     cartSubTotal += cartItemSubTotal;
                     var card = 
-                          '<div class="row pb-1 justify-content-center cartItem">' +
+                          '<div class="row p-0 pb-1 justify-content-center cartItem">' +
                               '<div class="card mb-2" style="width: 90%;">' +
                                   '<div class="card-body">' +
                                       '<div class="row d-flex justify-content-end">' +
@@ -131,14 +131,14 @@ $(function() {
                                       '</div>' +
                                       '<div class="row">' +
                                           '<div class="col"><img src="'+ productImage +'" class="img-fluid img-thumbnail cartItemImage"></div>' +
-                                          '<div class="col align-items-center text-center fw-bolder cartItemName">'+ productName +'</div>' +
-                                          '<div class="col align-items-center">' +
+                                          '<div class="col d-flex align-items-center text-center fw-bolder cartItemName">'+ productName +'</div>' +
+                                          '<div class="col d-flex align-items-center">' +
                                               '<div class="container">' +
                                                   '<div class="row justify-content-center">Price</div>' +
                                                   '<div class="row justify-content-center text-danger fw-bolder cartItemPrice">$'+ productPrice +'</div>' +
                                               '</div>' +
                                           '</div>' +
-                                          '<div class="col align-items-center">' +
+                                          '<div class="col d-flex align-items-center">' +
                                               '<div class="container p-0">' +
                                                   '<div class="row justify-content-center">Quantity</div>' +
                                                   '<div class="row justify-content-center">' +
@@ -150,8 +150,8 @@ $(function() {
                                                   '</div>' +
                                               '</div>' +
                                           '</div>' +
-                                          '<div class="col align-items-center">' +
-                                              '<div class="container">' +
+                                          '<div class="col d-flex align-items-center">' +
+                                              '<div class="container p-0">' +
                                                   '<div class="row justify-content-center">Total</div>' +
                                                   '<div class="cartSubTotal row justify-content-center text-danger fw-bolder">$'+ cartItemSubTotal.toFixed(2) +'</div>' +
                                               '</div>' +

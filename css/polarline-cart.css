@@ -2,11 +2,6 @@ main {
     background-color: rgb(240, 240, 240);
 }
 
-.cart-promo {
-    background-color: yellow;
-    font-size: 30px;
-    height: 80px;
-}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -17,4 +12,40 @@ input[type=number] {
     -moz-appearance: textfield;
     text-align: center;
     max-width: 2rem;
+}
+
+.cart-minus {
+    display: none !important;
+}
+
+.cart-add {
+    display: none !important;
+}
+
+.cartItem {
+    width: 95% !important;
+}
+.cartSummary {
+    width: 84% !important;
+}
+
+/* Media query for desktop layout */
+@media only screen and (min-width: 769px) {
+    .cart-minus {
+        display: block !important;
+    }
+    
+    .cart-add {
+        display: block !important;
+    }
+
+    
+    .cartItem {
+        width: 100% !important;
+    }
+
+    .cartSummary {
+        width: 90% !important;
+    }
+
 }
