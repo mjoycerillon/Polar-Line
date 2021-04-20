@@ -182,7 +182,6 @@ footer {
         font-size: 35px;
     }
     
-    /* Style for the body */
     body {
         background-color: whitesmoke;
         margin: 0;
@@ -368,8 +367,6 @@ footer {
         width: 200px;
     }
 
-
-    
 }
 
 /* Media query for desktop layout */

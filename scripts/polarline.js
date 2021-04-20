@@ -46,7 +46,8 @@ $(function() {
         } 
 
         if (isLoggedOn == "true") {
-            $("#navAccountName").text(user["first_name"]);
+            $("#navAccountName").text("Hi " + user["first_name"]);
+            $("#navAccountLinkMob").text(user["first_name"]);
             $(".nav-account-d-menu").append('<li><a id="navSignOutLink" class="dropdown-item" href="index.html">Sign Out</a></li>')
             $(".navAccountLink").attr( "href", "account.html");
         }
@@ -63,6 +64,12 @@ $(function() {
      */
     // Upon clicking the account icon, if the user already logged on, Account Page should be displayed
     $('#navAccount').on('click', function() {
+        if (isLoggedOn == "true") {
+            $(this).attr( "href", "account.html");
+        }
+    });
+
+    $('#navAccountLinkMob').on('click', function() {
         if (isLoggedOn == "true") {
             $(this).attr( "href", "account.html");
         }
