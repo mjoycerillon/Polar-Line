@@ -36,6 +36,9 @@ $(function() {
         function updateItemSubtotal(element){
             var itemPrice = $(element).parents('.cartItem').find('.cartItemPrice').text().substr(1);
             var itemQuantity = $(element).parents('.cartItem').find('.cartItemQuantity').val();
+            if (itemQuantity == "") {
+                itemQuantity = 0;
+            }
             var subTotal = parseFloat(itemPrice) * parseFloat(itemQuantity);
             var currentSubTotal = parseFloat($(element).parents('.cartItem').find('.cartSubTotal').text().substr(1));
             var cartSubTotal = (parseFloat($('#txtCartSubTotal').text().substr(1)) - currentSubTotal) + subTotal;
@@ -181,6 +184,12 @@ $(function() {
             if (cartSubTotal == 0.0) {
                 emptyCart();
             }
+        });
+
+        $('.cartItemQuantity').on('input', function(e) {
+            // if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                updateItemSubtotal($(this));
+            // }
         });
     });    
 });

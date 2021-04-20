@@ -48,6 +48,7 @@ $(function() {
         if (isLoggedOn == "true") {
             $("#navAccountName").text("Hi " + user["first_name"]);
             $("#navAccountLinkMob").text(user["first_name"]);
+            $(".nav-links").append('<li><a id="navSignOutLinkMob" href="index.html">SIGN OUT</a></li>')
             $(".nav-account-d-menu").append('<li><a id="navSignOutLink" class="dropdown-item" href="index.html">Sign Out</a></li>')
             $(".navAccountLink").attr( "href", "account.html");
         }
@@ -93,6 +94,15 @@ $(function() {
         localStorage.setItem("isLoggedOn", "false");
         localStorage.removeItem("current_user");
         $('#navSignOutLink').remove(); 
+        $('#navSignOutLinkMob').remove(); 
+
+    }); 
+
+    $(document).on('click', '#navSignOutLinkMob', function() {
+        localStorage.setItem("isLoggedOn", "false");
+        localStorage.removeItem("current_user");
+        $('#navSignOutLink').remove(); 
+        $('#navSignOutLinkMob').remove(); 
     }); 
 
 
