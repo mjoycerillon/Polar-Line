@@ -233,8 +233,11 @@ $(function() {
                                     "cart": []
                                 }
                             );
+                            accountsObj.push(user);
                             accounts=JSON.stringify(accountsObj);
                             localStorage.setItem("accounts", accounts);
+                            localStorage.setItem("current_user",JSON.stringify(user));
+                            localStorage.setItem("isLoggedOn",true);
                             return true;
                         }
                     }
