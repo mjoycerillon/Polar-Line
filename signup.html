@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <!-- This webpage is created by: Mary Joyce Rilon (C0787035)|Anugna Patibandla(C0791762)-->
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -115,36 +114,47 @@
         <div class="row">
             <div class="col">
                 <div class="login-col">
-                    <h4>LOGIN</h4>
-                    <form id="loginForm" action="index.html" novalidate>
+                    <h4>REGISTER</h4>
+                    <form id="registerForm" action="index.html" novalidate>
                         <div class="form-group p-2">
-                            <label for="txtLoginEmail" class="form-label">Email</label>
-                            <input type="email" class="inp form-control" id="txtLoginEmail">
-                            <div id="invalidEmail" class="invalid-feedback">
+                            <label for="txtRegisterFirstName" class="form-label">First Name</label>
+                            <input type="text" class="inp form-control" id="txtRegisterFirstName"
+                                name="txtRegisterFirstName" required>
+                            <div id="invalidFirstName" class="invalid-feedback">
+                                Please provide your first name.
+                            </div>
+                        </div>
+                        <div class="form-group p-2">
+                            <label for="txtRegisterLastName" class="form-label">Last Name</label>
+                            <input type="text" class="inp form-control" id="txtRegisterLastName"
+                                name="txtRegisterLastName" required>
+                            <div id="invalidLastName" class="invalid-feedback">
+                                Please provide your last name.
+                            </div>
+                        </div>
+                        <div class="form-group p-2">
+                            <label for="txtRegisterEmail" class="form-label">Email</label>
+                            <input type="txtRegisterEmail" class="inp form-control" id="txtRegisterEmail"
+                                name="txtRegisterEmail" required>
+                            <div id="invalidRegisterEmail" class="invalid-feedback">
                                 Please provide a valid email.
                             </div>
                         </div>
                         <div class="form-group p-2">
-                            <label for="txtLoginPassword" class="form-label">Password</label>
-                            <input type="password" class="inp form-control" id="txtLoginPassword"
-                                name="txtLoginPassword">
-                            <div id="invalidPassword" class="invalid-feedback">
-                                Please provide a password.
+                            <label for="txtRegisterPassword" class="form-label">Password</label><br>
+                            <input type="password" class="inp form-control" id="txtRegisterPassword"
+                                name="txtRegisterPassword" required>
+                            <div id="invalidRegisterPassword" class="invalid-feedback">
+                                Please provide password.
                             </div>
-                            <p class="form-text">
-                                <a href="#" class="form-link">
-                                    <span style="font-size:13px">Forgot your password? </span>
-                                </a>
-                            </p>
                         </div>
                         <div class="p-2">
-                            <input type="submit" class="btn-black btn btn-dark" id="btnLoginSubmit"
-                                value="Sign In"></input>
+                            <input type="submit" class="btn-black btn btn-dark" id="btnRegisterSubmit"
+                                value="Create"></input>
                         </div>
                     </form>
                 </div>
             </div>
-           
         </div>
     </main>
     <footer class="d-flex">
