@@ -22,14 +22,15 @@ $(function() {
         $('#lname').prop( "disabled", false );
         $('#mail').prop( "disabled", false );
         $('#age').prop( "disabled", false );
-        $('#pwd').prop( "disabled", false );
+        $('#phone').prop( "disabled", false );
+      //  $('#pwd').prop( "disabled", false );
         $('#submit1').show();
     });
 
     /* Enable feild, submit button at Billing address */
     $('#edit2').on('click', function() {
     $('#bill').prop( "disabled", false );
-    $('#phone').prop( "disabled", false );
+    $('#ship').prop( "disabled", false );
     $('#submit2').show();
     });
 
@@ -46,42 +47,46 @@ $(function() {
         user.last_name = $('#lname').val();
         user.email = $('#mail').val();
         user.birth_date = $('#age').val();
-        user.password = $('#pwd').val();
+    //    user.password = $('#pwd').val();
         localStorage.setItem("current_user", JSON.stringify(user));
 
         $('#fname').prop( "disabled", true );
         $('#lname').prop( "disabled", true );
         $('#mail').prop( "disabled", true );
         $('#age').prop( "disabled", true );
-        $('#pwd').prop( "disabled", true );
+        $('#phone').prop( "disabled", true );
+    //    $('#pwd').prop( "disabled", true );
         $('#submit1').hide();
     });
 
 
     $('#submit2').on('click', function() {
         $('#bill').prop( "disabled", true );
-        const user = JSON.parse(localStorage.getItem('current_user'));
-        user.billing_address = $('#bill').val();
-        localStorage.setItem("current_user", JSON.stringify(user));
-        $('#phone').prop( "disabled", true );
+        $('#ship').prop( "disabled", true );
+
+        const user1 = JSON.parse(localStorage.getItem('current_user'));
+        user1.billing_address = $('#bill').val();
+        localStorage.setItem("current_user", JSON.stringify(user1));
+
+        const user2 = JSON.parse(localStorage.getItem('current_user'));
+        user2.shipping_address = $('#ship').val();
+        localStorage.setItem("current_user", JSON.stringify(user2));
+
         $('#submit2').hide();
     });
 
+/*
     $('#submit3').on('click', function() {
-        $('#ship').prop( "disabled", true );
-        const user = JSON.parse(localStorage.getItem('current_user'));
-        user.shipping_address = $('#ship').val();
-        localStorage.setItem("current_user", JSON.stringify(user));
         $('#submit3').hide();
     });
 
-    /* Password visibility function */
+     Password visibility function 
     $('#check').on('click', function() {
         if ($('#pwd').attr('type') === 'password') {
             $('#pwd').attr('type', 'text'); 
         } else {
             $('#pwd').attr('type', 'password'); 
         }
-    });
+    }); */
 
 });

@@ -126,7 +126,6 @@
                 </div><br>
 
                 <div class="personalDetails">
-                <!--<button type="button" class="btn btn-dark" id="edit1">edit</button> -->
                     <div class="form-group col-lg-3"> <!--Input feild: First Name-->
                         <label>First Name</label>
                         <input type="text" id="fname" class="form-control"  placeholder="Enter FirstName" disabled></div>
@@ -136,34 +135,29 @@
                     <div class="form-group col-lg-3"> <!--Input feild: Email Address-->
                         <label>Email address</label>
                         <input type="email" id="mail" class="form-control"  placeholder="Enter email" disabled></div>
-                    <div class="form-group col-lg-3"> <!--Input feild: Birth Date-->
+                    <div class="form-group col-lg-3"> <!--Input feild: Phone Number-->
+                        <label>Phone number</label>
+                        <input type="tel" id="phone" class="form-control" placeholder="Enter Phone Number" disabled></div>      
+                    <div class="form-group col-lg-7 m-auto"> <!--Input feild: Birth Date-->
                         <label>Birth Date</label>
-                        <input type="date" id="age" class="form-control" disabled></div>
-                    <div class="form-group col-lg-3"> <!--Input feild: Password -->  	
+                        <input type="date" id="age" class="form-control" disabled></div><br>
+                <!--    <div class="form-group col-lg-3"> Input feild: Password  	
                         <label>Password</label>
                         <input type="password" class="form-control" value="" id="pwd" disabled>
-                        <input type="checkbox" id="check" name="box">
+                        <input type="checkbox" id="check" name="box">  --> 
                     <button type="button" id="submit1" class="btn btn-dark" style="display: none">Save Changes</button></div><br>
-                </div><br>
+                </div>
                 
                 
                 <div id="heading">
                     <h2>Billing/Shipping Address<button type="button" class="btn btn-secondary" id="edit2">edit</button><br></h2>
                 </div><br>
-                    <!-- <button type="button" class="btn btn-dark" id="edit2">edit</button><br> -->
-                    <div class="form-group col-lg-3">
-                        <label>Phone number</label>
-                        <input type="tel" id="phone" class="form-control" placeholder="Enter Phone Number" disabled>
-                    </div><br>
 
                     <!--Billing Address TextArea-->
                     <div class="form-group w-25">
                         <h6 style="font-weight: bold;">Billing Address</h6>
                         <textarea class="form-control" rows="4" id="bill" disabled></textarea><br>
                     </div>
-                    <button type="button" class="btn btn-dark" id="submit2" style="display: none">Save Changes</button><br>
-                    
-                    <button type="button" class="btn btn-dark" id="edit3">edit</button><br>
 
                     <!--shipping Address TextArea-->
                     <div class="form-group w-25">
@@ -171,31 +165,13 @@
                         <textarea class="form-control" rows="4" id="ship" disabled></textarea><br>
                     </div>
 
-                    <button type="button" class="btn btn-dark" id="submit3" style="display: none">Save Changes</button><br><br>
+                    <button type="button" class="btn btn-dark" id="submit2" style="display: none">Save Changes</button><br><br>
                 </div>
             </div>
         </div>                       
 
 		<style>
-            .container{
-                width: 100%;
-            }/*
-            .leftpage{
-				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
-				float:left;
-				margin-left: 10px;
-                width: 25%;
-                height: 300px;
-			} 
-            .rightpage{
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
-				float:right;
-                width: 75%;
-                height: 100px;
-            } */
-
             #edit1, #edit2{float:right; margin-top:4px;}
-			#edit3{float: right; margin-right: 700px; margin-top: 8px;} 
 			
 			#heading{
 					color:white;
