@@ -123,7 +123,8 @@
 				<h2>Personal details</h2>	
 			</div><br><br>
             <div class="form">
-                <button id="edit1">edit</button>
+               <!-- <button id="edit1">edit</button> -->
+                <button type="button" class="btn btn-dark" id="edit1">edit</button>
                 <label>First Name  </label>
                 <input type="text" id="fname" disabled /><br>
                 <label>Last Name  </label>
@@ -137,30 +138,31 @@
                 <label>Password</label>
                 <input type="password" value="" id="pwd" disabled>
                 <input type="checkbox" id="check"><br>
-                <button id="submit1" type="submit" style="display: none">submit</button><br>
+                <button type="button" id="submit1" class="btn btn-dark" style="display: none">Save Changes</button><br>
+                <!--- <button id="submit1" type="submit" style="display: none">submit</button><br> -->
             </div>
 			<br>
 			<div id="heading">
 				<h2>Billing/Shipping Address</h2></div>	<br>
 			
-				<button id="edit2">edit</button><br>
+				<button type="button" class="btn btn-dark" id="edit2">edit</button><br>
 				<h4> BILLING ADDRESS </h4>
 				<textarea id="bill" rows="4" cols="36" disabled></textarea><br>
-				<button id="submit2" style="display: none">submit</button>
+				<button type="button" class="btn btn-dark" id="submit2" style="display: none">Save Changes</button>
 
 				<br>
-				<button id="edit3">edit</button><br>
+				<button type="button" class="btn btn-dark" id="edit3">edit</button><br>
 				<h4> SHIPPING ADDRESS </h4>
 				<textarea id="ship" rows="4" cols="36" disabled></textarea><br>
-				<button id="submit3" style="display: none">submit</button><br>
+				<button type="button" class="btn btn-dark" id="submit3" style="display: none">Save Changes</button><br><br>
 			</div>
 		
 
 		<style>
-			#edit1, #edit2, #edit3{float: right; margin-right: 800px; margin-top: 8px;}
-			button{color: white; background-color: black; display: inline-block; font-size: 18px; margin-bottom: 10px;}
+			#edit1, #edit2, #edit3{float: right; margin-right: 800px; margin-top: 8px;} 
+			/* button{color: white; background-color: black; display: inline-block; font-size: 18px; margin-bottom: 10px;}
 			button:hover{background-color:teal; color: white;}
-			button:active {box-shadow: 0 5px #666; transform: translateY(0.1px);}
+			button:active {box-shadow: 0 5px #666; transform: translateY(0.1px);} */
 			#heading{
 					color:white;
 					background-color: black; 
