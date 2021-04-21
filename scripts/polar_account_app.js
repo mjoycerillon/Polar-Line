@@ -14,6 +14,22 @@ $(function() {
         $('#ship').val(user.shipping_address);
     });
 
+    function updateAccounts(user) {
+        // Retrieve the data from the local storage and parse it
+        var objectData = JSON.parse(localStorage.getItem("accounts"));
+
+        // Find the account and save it into global variable account
+        for (i = 0; i < objectData.length; i++) {
+            var tempAccount = objectData[i]
+            if (tempAccount["email"] == user.email) {
+                objectData.splice(i, 1);
+                break;   
+            }
+        }
+        objectData.push(user);
+        localStorage.setItem("accounts",JSON.stringify(objectData));
+    }
+
     /* Enable feilds, submit button in personal details */
     $('#edit1').on('click', function() {
         $('#fname').prop( "disabled", false );
@@ -26,15 +42,15 @@ $(function() {
 
     /* Enable feild, submit button at Billing address */
     $('#edit2').on('click', function() {
-    $('#bill').prop( "disabled", false );
-    $('#ship').prop( "disabled", false );
-    $('#submit2').show();
+        $('#bill').prop( "disabled", false );
+        $('#ship').prop( "disabled", false );
+        $('#submit2').show();
     });
 
     /* Enable field, submit button at shipping address */
     $('#edit3').on('click', function() {
-    $('#ship').prop( "disabled", false );
-    $('#submit3').show();
+        $('#ship').prop( "disabled", false );
+        $('#submit3').show();
     });
 
     /* Edit (or) Enter data and push inputs to localstorage */
@@ -46,6 +62,7 @@ $(function() {
         user.phone = $('#phone').val();
         user.birth_date = $('#age').val();
         localStorage.setItem("current_user", JSON.stringify(user));
+        updateAccounts(user);
 
         $('#fname').prop( "disabled", true );
         $('#lname').prop( "disabled", true );
@@ -63,10 +80,12 @@ $(function() {
         const user1 = JSON.parse(localStorage.getItem('current_user'));
         user1.billing_address = $('#bill').val();
         localStorage.setItem("current_user", JSON.stringify(user1));
+        updateAccounts(user1);
 
         const user2 = JSON.parse(localStorage.getItem('current_user'));
         user2.shipping_address = $('#ship').val();
         localStorage.setItem("current_user", JSON.stringify(user2));
+        updateAccounts(user2);
 
         $('#submit2').hide();
     });
