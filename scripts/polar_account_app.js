@@ -4,14 +4,16 @@ $(function() {
     $(window).on('load', function () {
     
         const user = JSON.parse(localStorage.getItem('current_user'));
-        $('#fname').val(user.first_name);
-        $('#lname').val(user.last_name);
-        $('#mail').val(user.email);
-        $('#phone').val(user.phone);
-        $('#age').val(user.birth_date);
-        $('#pwd').val(user.password);
-        $('#bill').val(user.billing_address);
-        $('#ship').val(user.shipping_address);
+        if (user != null) {
+            $('#fname').val(user.first_name);
+            $('#lname').val(user.last_name);
+            $('#mail').val(user.email);
+            $('#phone').val(user.phone);
+            $('#age').val(user.birth_date);
+            $('#pwd').val(user.password);
+            $('#bill').val(user.billing_address);
+            $('#ship').val(user.shipping_address);
+        }
     });
 
     function updateAccounts(user) {
@@ -34,7 +36,7 @@ $(function() {
     $('#edit1').on('click', function() {
         $('#fname').prop( "disabled", false );
         $('#lname').prop( "disabled", false );
-        $('#mail').prop( "disabled", false );
+        $('#mail').prop( "disabled", true );
         $('#age').prop( "disabled", false );
         $('#phone').prop( "disabled", false );
         $('#submit1').show();
@@ -54,13 +56,14 @@ $(function() {
     });
 
     /* Edit (or) Enter data and push inputs to localstorage */
-    $('#submit1').on('click', function() {
+    $('#accountDetailsForm').on('submit', function(event) {
         const user = JSON.parse(localStorage.getItem('current_user'));
         user.first_name = $('#fname').val();
         user.last_name = $('#lname').val();
         user.email = $('#mail').val();
         user.phone = $('#phone').val();
         user.birth_date = $('#age').val();
+    
         localStorage.setItem("current_user", JSON.stringify(user));
         updateAccounts(user);
 

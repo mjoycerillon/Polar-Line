@@ -45,8 +45,9 @@ $(function() {
             localStorage.setItem("accounts", accountsJSON);
         } 
 
+    
         if (isLoggedOn == "true") {
-            $("#navAccountName").text("Hi " + user["first_name"]);
+            $("#navAccountName").text(user["first_name"]);
             $("#navAccountLinkMob").text(user["first_name"]);
             $(".nav-links").append('<li><a id="navSignOutLinkMob" href="index.html">SIGN OUT</a></li>')
             $(".nav-account-d-menu").append('<li><a id="navSignOutLink" class="dropdown-item" href="index.html">Sign Out</a></li>')
@@ -54,6 +55,7 @@ $(function() {
         }
     });
 
+    // Upon clicking the burger icon in mobile view, the navigation links will toggle slide fom left
     $('.burger-container').on('click', function() {
         $('.nav-links-grp').children('ul').toggle('slide', {
             direction: 'left'
@@ -161,7 +163,6 @@ $(function() {
      */
     // Upon login, save the data of the user to local storage
     $('#loginForm').on('submit', function(event) {
-
         // Get value of Login Email and Password
         var loginEmail = $('#txtLoginEmail').val();
         var loginPassword = $('#txtLoginPassword').val();
@@ -194,7 +195,7 @@ $(function() {
                         } else {
                             // Set the global variable isLoggedOn to true and redirect to Account Page            
                             localStorage.setItem("isLoggedOn", true);
-                            $("#loginForm").submit();
+                            return true;
                         }
                     }
                 }
