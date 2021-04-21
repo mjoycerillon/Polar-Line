@@ -61,3 +61,19 @@ header {
 #btnContactSubmit {
     width: 150px !important;
 }
+
+@media (max-width: 800px) {
+    #contacts {
+        width: 80%;
+        margin: auto;
+        display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+  .content {
+    padding: 1em;
+    align-items: center;
+    width: auto;
+    font-size: larger;
+}
