@@ -55,7 +55,7 @@ $(document).ready(function () {
         });
           
         function validateTelephone() {
-          var regexPattern = /^[0-9-+]+$/;
+          var regexPattern = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
           let phoneValue = $('#txtContactNumber').val();
           if (phoneValue.length == '') {
              $('#phonemsg').show();
