@@ -4,6 +4,9 @@
 }
 
 /* Common Styles */
+body {
+    background-color: whitesmoke;
+}
 /* Styles for Mobile layout */
 .logo-polar {
     font-weight: bold;
@@ -187,7 +190,6 @@ footer {
     }
     
     body {
-        background-color: whitesmoke;
         margin: 0;
         padding: 0;
     }

@@ -8,8 +8,6 @@ $(function() {
         $('#lname').val(user.last_name);
         $('#mail').val(user.email);
         $('#phone').val(user.phone);
-        //const dob = user.birth_date.split('/'); //date needs to be formatted "09/22/1994" mm-dd-yyyy.. yyyy-mm-dd
-        //const myDate = `${dob[2]}-${dob[0]}-${dob[1]}`;
         $('#age').val(user.birth_date);
         $('#pwd').val(user.password);
         $('#bill').val(user.billing_address);
@@ -23,7 +21,6 @@ $(function() {
         $('#mail').prop( "disabled", false );
         $('#age').prop( "disabled", false );
         $('#phone').prop( "disabled", false );
-      //  $('#pwd').prop( "disabled", false );
         $('#submit1').show();
     });
 
@@ -34,7 +31,7 @@ $(function() {
     $('#submit2').show();
     });
 
-    /* Enable feild, submit button at shipping address */
+    /* Enable field, submit button at shipping address */
     $('#edit3').on('click', function() {
     $('#ship').prop( "disabled", false );
     $('#submit3').show();
@@ -46,8 +43,8 @@ $(function() {
         user.first_name = $('#fname').val();
         user.last_name = $('#lname').val();
         user.email = $('#mail').val();
+        user.phone = $('#phone').val();
         user.birth_date = $('#age').val();
-    //    user.password = $('#pwd').val();
         localStorage.setItem("current_user", JSON.stringify(user));
 
         $('#fname').prop( "disabled", true );
@@ -55,7 +52,6 @@ $(function() {
         $('#mail').prop( "disabled", true );
         $('#age').prop( "disabled", true );
         $('#phone').prop( "disabled", true );
-    //    $('#pwd').prop( "disabled", true );
         $('#submit1').hide();
     });
 
@@ -74,19 +70,4 @@ $(function() {
 
         $('#submit2').hide();
     });
-
-/*
-    $('#submit3').on('click', function() {
-        $('#submit3').hide();
-    });
-
-     Password visibility function 
-    $('#check').on('click', function() {
-        if ($('#pwd').attr('type') === 'password') {
-            $('#pwd').attr('type', 'text'); 
-        } else {
-            $('#pwd').attr('type', 'password'); 
-        }
-    }); */
-
 });
