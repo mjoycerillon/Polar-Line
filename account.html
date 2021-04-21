@@ -125,20 +125,21 @@
             <div class="form">
                
                 <button type="button" class="btn btn-dark" id="edit1">edit</button>
-                <label>First Name  </label>
-                <input type="text" id="fname" disabled /><br>
-                <label>Last Name  </label>
-                <input type="text" id="lname" disabled /><br><!--
-                <label>Email ID : </label>
-                <input type="email" id="mail" disabled /><br>-->
+                <div class="form-group col-lg-3">
+                    <label>First Name</label>
+                    <input type="text" id="fname" class="form-control"  placeholder="Enter FirstName" disabled></div>
+                <div class="form-group col-lg-3">
+                    <label>Last Name</label>
+                    <input type="text" id="lname" class="form-control"  placeholder="Enter LastName" disabled></div>
+               
+                
                 <div class="form-group col-lg-3">
                     <label>Email address</label>
-                    <input type="email" class="form-control" id="mail" placeholder="Enter email" disabled>
-                  </div>
+                    <input type="email" id="mail" class="form-control"  placeholder="Enter email" disabled></div>
                 <div class="form-group col-lg-3">
-                <label>Phone Number </label>
-                <input type="tel" id="phone" class="form-control" placeholder="Enter email" disabled > </div>
-                <label>Birth Date:  </label>
+                    <label>Phone Number</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="Enter Phone Number" disabled></div>
+                <label>Birth Date</label>
                 <input type="date" id="age" disabled><br>	
                 <label>Password</label>
                 <input type="password" value="" id="pwd" disabled>
@@ -196,7 +197,7 @@
               
 
 		<style>
-			#edit1, #edit2, #edit3{float: right; margin-right: 800px; margin-top: 8px;} 
+			#edit1, #edit2, #edit3{float: right; margin-right: 700px; margin-top: 8px;} 
 			
 			#heading{
 					color:white;
