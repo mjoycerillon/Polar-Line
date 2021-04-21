@@ -110,49 +110,73 @@
         </div>
     </nav>
     <main>
-        <div class="row">
-            <div class="col">
-                <div class="login-col">
-                    <h4>REGISTER</h4>
-                    <form id="registerForm" action="index.html" novalidate>
+        <div class="container py-5">
+            <div class="card shadow p-3 mb-5 bg-white rounded m-auto" style="max-width: 500px;">
+                <div class="py-2 d-flex justify-content-center fw-bold" style="font-size: 20px;">REGISTER</div>
+                <div class="card-body">
+                    <form id="registerForm" action="index.html" class="m-auto" novalidate>
                         <div class="form-group p-2">
-                            <label for="txtRegisterFirstName" class="form-label">First Name</label>
-                            <input type="text" class="inp form-control" id="txtRegisterFirstName"
-                                name="txtRegisterFirstName" required>
-                            <div id="invalidFirstName" class="invalid-feedback">
-                                Please provide your first name.
+                            <div class="row">
+                                <div class="col-md-3 col-4 p-0">
+                                    <div class="px-2 d-flex justify-content-end">First Name</div>
+                                </div>
+                                <div class="col-md-7 col-8 p-0">
+                                    <input type="text" class="inp form-control" id="txtRegisterFirstName">
+                                    <div id="invalidFirstName" class="invalid-feedback">
+                                        Please provide your first name.
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group p-2">
-                            <label for="txtRegisterLastName" class="form-label">Last Name</label>
-                            <input type="text" class="inp form-control" id="txtRegisterLastName"
-                                name="txtRegisterLastName" required>
-                            <div id="invalidLastName" class="invalid-feedback">
-                                Please provide your last name.
+                            <div class="row">
+                                <div class="col-md-3 col-4 p-0">
+                                    <div class="px-2 d-flex justify-content-end">Last Name</div>
+                                </div>
+                                <div class="col-md-7 col-8 p-0">
+                                    <input type="text" class="inp form-control" id="txtRegisterLastName">
+                                    <div id="invalidLastName" class="invalid-feedback">
+                                        Please provide your last name.
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group p-2">
-                            <label for="txtRegisterEmail" class="form-label">Email</label>
-                            <input type="txtRegisterEmail" class="inp form-control" id="txtRegisterEmail"
-                                name="txtRegisterEmail" required>
-                            <div id="invalidRegisterEmail" class="invalid-feedback">
-                                Please provide a valid email.
+                            <div class="row">
+                                <div class="col-md-3 col-4 p-0">
+                                    <div class="px-2 d-flex justify-content-end">Email</div>
+                                </div>
+                                <div class="col-md-7 col-8 p-0">
+                                    <input type="txtRegisterEmail" class="inp form-control" id="txtRegisterEmail">
+                                    <div id="invalidRegisterEmail" class="invalid-feedback">
+                                        Please provide a valid email.
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group p-2">
-                            <label for="txtRegisterPassword" class="form-label">Password</label><br>
-                            <input type="password" class="inp form-control" id="txtRegisterPassword"
-                                name="txtRegisterPassword" required>
-                            <div id="invalidRegisterPassword" class="invalid-feedback">
-                                Please provide password.
+                            <div class="row">
+                                <div class="col-md-3 col-4 p-0">
+                                    <div class="px-2 d-flex justify-content-end">Password</div>
+                                </div>
+                                <div class="col-md-7 col-8 p-0">
+                                    <input type="password" class="inp form-control" id="txtRegisterPassword">
+                                    <div id="invalidRegisterPassword" class="invalid-feedback">
+                                        Please provide password.
+                                    </div>
+                                </div>
                             </div>
-                            <p class="form-text"> 
-                                <span style="font-size:13px">Already registered? <a href="login.html" class="form-link">login</a> </span>
-                            </p>
                         </div>
-                        <div class="p-2">
-                            <input type="submit" class="btn-black btn btn-dark" id="btnRegisterSubmit"
-                                value="Create"></input>
+                        <div class="form-group py-2 ps-2">
+                            <div class="d-grid col-md-8 col-12 mx-auto">
+                                <button class="btn btn-dark btn-block" type="submit">Register</button><br>
+                            </div>
+                        </div>
+                        <div class="form-group p-2">
+                            <div class="row d-flex justify-content-center">
+                                <span class="px-2 d-flex justify-content-center">Already have an account?
+                                <a href="login.html">Login</a></span>
+                            </div>
                         </div>
                     </form>
                 </div>

@@ -231,21 +231,19 @@ $(function() {
                             var accounts=localStorage.getItem("accounts");
                             var accountsObj=JSON.parse(accounts);
                             accountsObj=JSON.parse(accounts);
-                            accountsObj.push(
-                                {
-                                    "first_name": $('#txtRegisterFirstName').val(),
-                                    "last_name": $('#txtRegisterLastName').val(),
-                                    "email": $('#txtRegisterEmail').val(),
-                                    "password": $('#txtRegisterPassword').val(),
-                                    "phone":"",
-                                    "billing_address": "",
-                                    "shipping_address": "",
-                                    "birth_date": "",
-                                    "cart": []
-                                }
-                            );
+                            user = {
+                                "first_name": $('#txtRegisterFirstName').val(),
+                                "last_name": $('#txtRegisterLastName').val(),
+                                "email": $('#txtRegisterEmail').val(),
+                                "password": $('#txtRegisterPassword').val(),
+                                "phone":"",
+                                "billing_address": "",
+                                "shipping_address": "",
+                                "birth_date": "",
+                                "cart": []
+                            }
                             accountsObj.push(user);
-                            accounts=JSON.stringify(accountsObj);
+                            accounts = JSON.stringify(accountsObj);
                             localStorage.setItem("accounts", accounts);
                             localStorage.setItem("current_user",JSON.stringify(user));
                             localStorage.setItem("isLoggedOn",true);
