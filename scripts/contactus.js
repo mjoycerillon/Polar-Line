@@ -1,5 +1,4 @@
 
-// Document is ready
 $(document).ready(function () { 
      
     // Validate Username
@@ -48,6 +47,8 @@ $(document).ready(function () {
                 // usermailError = false;
             }
          }
+
+         // Validate Phone Number
         $('#phonemsg').hide();    
         let phoneError = true;
         $('#txtContactNumber').keyup(function () {
@@ -71,7 +72,8 @@ $(document).ready(function () {
               $('#phonemsg').hide(); 
           }
         } 
-        
+
+        // Validate Text Message        
         $('#textMsg').hide();    
         let textError = true;
         $('#txtContactMessage').keyup(function () {
