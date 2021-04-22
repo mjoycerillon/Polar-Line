@@ -14,6 +14,10 @@ $(function() {
             $('#bill').val(user.billing_address);
             $('#ship').val(user.shipping_address);
         }
+
+        $('#submit1').hide();
+        $('#submit2').hide();
+
     });
 
     function updateAccounts(user) {
