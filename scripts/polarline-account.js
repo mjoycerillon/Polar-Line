@@ -39,6 +39,11 @@ $(function() {
             }
 
         }
+        else{
+            $('#userPhone').hide();
+            $('#userLName').hide();
+            $('#userFName').hide();
+        }
     });
 
     function updateAccounts(user) {
