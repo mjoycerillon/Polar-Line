@@ -13,36 +13,6 @@ $(function() {
             $('#pwd').val(user.password);
             $('#bill').val(user.billing_address);
             $('#ship').val(user.shipping_address);
-            
-            if(!validateName($('#fname').val()))
-            {
-                $('#userFName').show();
-            }
-            else{
-                $('#userFName').hide();
-            }
-    
-            if(!validateName($('#lname').val()))
-            {
-                $('#userLName').show();
-            }
-            else{
-                $('#userLName').hide();
-            }
-    
-            if(!validatePhone($('#phone').val()))
-            {
-                $('#userPhone').show();
-            }
-            else{
-                $('#userPhone').hide();
-            }
-
-        }
-        else{
-            $('#userPhone').hide();
-            $('#userLName').hide();
-            $('#userFName').hide();
         }
     });
 
@@ -85,50 +55,60 @@ $(function() {
         $('#submit3').show();
     });
 
+
+    function isBlank($field) {
+        return $field == "";
+    }
+
+    function clearWarning($textField) {
+        $textField.removeClass('is-invalid');
+        $textField.next().css('display', 'none');
+        $('.alert').remove();
+    }
+
+    function invalidField(event, $textField) {
+
+        $textField.addClass('is-invalid').css('padding-right', '0.9em');
+        $textField.next().css('display', 'block');
+        $textField.focus();
+        event.preventDefault();
+    }
+
+
     /* Edit (or) Enter data and push inputs to localstorage */
     $('#accountDetailsForm').on('submit', function(event) {
         const user = JSON.parse(localStorage.getItem('current_user'));
-      /* user.first_name = $('#fname').val();
-        user.last_name = $('#lname').val();*/
-        user.email = $('#mail').val();
-       /* user.phone = $('#phone').val();*/
-        user.birth_date = $('#age').val();
-        if(!validateName($('#fname').val()))
-        {
-            user.first_name = $('#fname').val();
-            $('#userFName').show();
-        }
-        else{
-            user.first_name = $('#fname').val();
-        }
 
-        if(!validateName($('#lname').val()))
-        {
-            user.last_name = $('#lname').val();
-            $('#userLName').show();
-        }
-        else{
-            user.last_name = $('#lname').val();
-        }
+        clearWarning($("#fname"));
+        if (isBlank($('#fname').val())) {
+            invalidField(event, $("#fname"));
+        } else {
+            clearWarning($("#lname"));
+            if (isBlank($('#lname').val())) {
+                invalidField(event, $("#lname"));
+            } else {
+                clearWarning($("#phone"));
+                if (isBlank($('#phone').val()) || !validatePhone($('#phone').val())) {
+                    invalidField(event, $("#phone"));
+                } else {
+                    user.first_name = $('#fname').val();
+                    user.last_name = $('#lname').val();
+                    user.email = $('#mail').val();
+                    user.phone = $('#phone').val();
+                    user.birth_date = $('#age').val();
+                    
+                    localStorage.setItem("current_user", JSON.stringify(user));
+                    updateAccounts(user);
 
-       if(!validatePhone($('#phone').val()))
-        {
-            user.phone = $('#phone').val();
-            $('#userPhone').show();
+                    $('#fname').prop( "disabled", true );
+                    $('#lname').prop( "disabled", true );
+                    $('#mail').prop( "disabled", true );
+                    $('#age').prop( "disabled", true );
+                    $('#phone').prop( "disabled", true );
+                    $('#submit1').hide();
+                }
+            }
         }
-        else{
-            user.phone = $('#phone').val();
-        }
-
-        localStorage.setItem("current_user", JSON.stringify(user));
-        updateAccounts(user);
-
-        $('#fname').prop( "disabled", true );
-        $('#lname').prop( "disabled", true );
-        $('#mail').prop( "disabled", true );
-        $('#age').prop( "disabled", true );
-        $('#phone').prop( "disabled", true );
-        $('#submit1').hide();
     });
 
 
@@ -149,13 +129,6 @@ $(function() {
         $('#submit2').hide();
     });
 });
-
-function validateName(s)
-{
-    if(s==null || s=="")
-        return false;
-    return true;
-}
 
 function validatePhone(ph)
 {
