@@ -13,6 +13,30 @@ $(function() {
             $('#pwd').val(user.password);
             $('#bill').val(user.billing_address);
             $('#ship').val(user.shipping_address);
+            if(!validateName($('#fname').val()))
+            {
+                $('#userFName').show();
+            }
+            else{
+                $('#userFName').hide();
+            }
+    
+            if(!validateName($('#lname').val()))
+            {
+                $('#userLName').show();
+            }
+            else{
+                $('#userLName').hide();
+            }
+    
+            if(!validatePhone($('#phone').val()))
+            {
+                $('#userPhone').show();
+            }
+            else{
+                $('#userPhone').hide();
+            }
+
         }
     });
 
@@ -58,12 +82,38 @@ $(function() {
     /* Edit (or) Enter data and push inputs to localstorage */
     $('#accountDetailsForm').on('submit', function(event) {
         const user = JSON.parse(localStorage.getItem('current_user'));
-        user.first_name = $('#fname').val();
-        user.last_name = $('#lname').val();
+      /* user.first_name = $('#fname').val();
+        user.last_name = $('#lname').val();*/
         user.email = $('#mail').val();
-        user.phone = $('#phone').val();
+       // user.phone = $('#phone').val();
         user.birth_date = $('#age').val();
-    
+        if(!validateName($('#fname').val()))
+        {
+            user.first_name = $('#fname').val();
+            $('#userFName').show();
+        }
+        else{
+            user.first_name = $('#fname').val();
+        }
+
+        if(!validateName($('#lname').val()))
+        {
+            user.last_name = $('#lname').val();
+            $('#userLName').show();
+        }
+        else{
+            user.last_name = $('#lname').val();
+        }
+
+        if(!validatePhone($('#phone').val()))
+        {
+            user.phone = $('#phone').val();
+            $('#userPhone').show();
+        }
+        else{
+            user.phone = $('#phone').val();
+        }
+
         localStorage.setItem("current_user", JSON.stringify(user));
         updateAccounts(user);
 
@@ -93,3 +143,16 @@ $(function() {
         $('#submit2').hide();
     });
 });
+
+function validateName(s)
+{
+    if(s==null || s=="")
+        return false;
+    return true;
+}
+
+function validatePhone(ph)
+{
+    var regex = /^\d{10}$/;
+    return regex.test(ph);
+}
